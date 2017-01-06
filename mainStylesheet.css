@@ -3,7 +3,7 @@ body {
 }
 .theGreatDiv {
   text-align: center;
-  font-family: Arial;
+  font-family: "Arial Black";
   font-size: 6vmin;
   color: #f1faee;
 }
@@ -15,7 +15,7 @@ a {
   width: 60px;
   height: 60px;
   border-radius:50%;
-  font-size: 50px;
+  font-size: 46px;
   background-color: #028090;
   float: right;
   margin: 1% 1%;
@@ -24,21 +24,26 @@ a {
   background-color: #2a9d8f;
 }
 .buttonDiv {
-  background-color: #028090;
+  background-color: #e76f51;
   width: 32%;
-  height: 40%;
+  height: 0%;
   margin: 2% 0%;
   display: inline-block;
   transition-duration: 0.3s;
+  padding-top: 8%;
+  padding-bottom: 12%;
 }
 .buttonDiv:hover {
-  background-color: #2a9d8f;
+  background-color: #f4a261;
 }
 .datasetDiv {
   background-color: #028090;
   width: 32%;
-  height: 15%;
+  height: 0%;
   margin: 2% auto;
+  padding-top: 3%;
+  padding-bottom: 7%;
+  font-size: 5vmin;
 }
 .datasetDiv:hover {
   background-color: #2a9d8f;
@@ -53,6 +58,7 @@ a {
   background-color: #028090;
   float: right;
   margin: 3% 1%;
+  font-size: 5vmin;
 }
 .feedbackDiv:hover {
   background-color: #2a9d8f;
