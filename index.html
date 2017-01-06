@@ -1,15 +1,21 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="mainStylesheet.css">
     </head>
     <body>
-      <div style="text-align: center">
-        <h1>Select a file in CSV format to import data</h1>
-        <div id="importedCSV"></div>
-        <script type="text/javascript" src="data_mining.js" charset="utf-8"></script>
-        <script type="text/javascript" src="read_csv.js" charset="utf-8"></script>
-        <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
-        <input type="file" id="csvFileInput" onchange="handleFiles(this.files)"accept=".csv">
+      <div class="theGreatDiv">
+        <div class="questionMarkDiv">?</div>
+        <div class="datasetDiv">Current Dataset: </div>
+        <div class="buttonDivContainer">
+          <a href="importData.html">
+            <div class="buttonDiv">Import data</div>
+          </a>
+          <div class="buttonDiv">Get Schedule</div>
+          <div class="buttonDiv">Export results</div>
+        </div>
+        <div class="placeholderDiv">Placeholder</div>
+        <div class="feedbackDiv">Share Feedback</div>
       </div>
     </body>
 </html>
