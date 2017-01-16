@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/mainStylesheet.css">
+    </head>
+    <div class="theGreatDiv">
+      <div>
+        <p>Select a file in CSV format to import data</p>
+        <div id="importedCSV"></div>
+        <script type="text/javascript" src="scripts/data_mining.js" charset="utf-8"></script>
+        <script type="text/javascript" src="scripts/read_csv.js" charset="utf-8"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+        <input type="file" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv" name="Choosefile">
+
+      </div>
+    </div>
+    </body>
+</html>
