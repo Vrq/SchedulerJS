@@ -1,0 +1,32 @@
+/*.importPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}*/
+.uploadButtonDiv {
+  background-color: #994d00;
+  width: 32%;
+  height: 15%;
+  margin: 3% auto;
+  transition-duration: 0.3s;
+  padding-top: 3%;
+  padding-bottom: 0%;
+}
+.uploadButtonDiv:hover {
+  background-color: #d7690f;
+}
+progress {
+  color: #2a9d8f;
+  margin: 1% auto;
+  background-color: 'gray';
+  border: 0;
+  height: 35px;
+}
+/*progress bar color for mozilla, opera and chrome*/
+progress::-moz-progress-bar {
+  background: #2a9d8f;
+}
+progress::-webkit-progress-value {
+  background: #2a9d8f;
+}

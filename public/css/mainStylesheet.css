@@ -1,5 +1,5 @@
 body {
-    background-color: #264653;
+    background-color: #182d34;
 }
 .theGreatDiv {
   text-align: center;
@@ -24,7 +24,7 @@ a {
   background-color: #2a9d8f;
 }
 .buttonDiv {
-  background-color: #e76f51;
+  background-color: #994d00;
   width: 32%;
   height: 0%;
   margin: 2% 0%;
@@ -34,7 +34,7 @@ a {
   padding-bottom: 12%;
 }
 .buttonDiv:hover {
-  background-color: #f4a261;
+  background-color: #d7690f;
 }
 .datasetDiv {
   background-color: #028090;
