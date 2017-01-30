@@ -3,9 +3,11 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/mainStylesheet.css">
         <link rel="stylesheet" type="text/css" href="css/importDataStylesheet.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
         <script type="text/javascript" src="scripts/data_mining.js" charset="utf-8"></script>
         <script type="text/javascript" src="scripts/read_csv.js" charset="utf-8"></script>
-        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+
+
     </head>
     <div class="theGreatDiv">
       <div class="importPageContainer">
@@ -14,7 +16,8 @@
           <input type="file" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv" name="Choosefile">
         </div>
         <progress id="progress" value="0"></progress>
-        <div class="uploadButtonDiv">Show Data</div>
+        <div class="uploadButtonDiv" id="showDataButton">Show Data</div>
+        <div id="hiddenDiv">Hidden</div>
         <a href="index.html">
           <div class="uploadButtonDiv">Back</div>
         </a>

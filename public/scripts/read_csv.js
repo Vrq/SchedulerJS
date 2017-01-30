@@ -21,3 +21,8 @@ function handleFiles(files) {
         success: function(data){console.log('upload successful!');}
       });
 }
+$(document).ready(function() {
+  $("#showDataButton").click(function() {
+    $("#hiddenDiv").slideToggle("fast");
+  });
+});

@@ -10,6 +10,7 @@ body {
 a {
   color: #f1faee;
   text-decoration: none;
+  cursor: default;
 }
 .questionMarkDiv {
   width: 60px;
