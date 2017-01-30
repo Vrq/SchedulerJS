@@ -14,23 +14,27 @@ const uploadingConfig = multer({
   storage: storage,
   limits: {filesize: 10000000}
 }).array('files')
-
+var lastUploadedFileName = null;
 app.use(express.static('public'));
 
 
-//Routes:
+//REST:
 app.get('/', function(req, res) {
    res.sendFile(__dirname + '/public/index.html');
  });
+
+app.get('/uploaded_file', function(req, res) {
+  console.log(lastUploadedFileName);
+  //przeparsowac plik na serwerze do listy obiektow (zdarzen) i wysylac do klienta
+  res.sendFile(__dirname + '/uploaded_files/' + lastUploadedFileName);
+});
+
 app.post('/upload', uploadingConfig, function(req, res) {
-  console.log('Z serwera 3');
-  console.log(req.files[0])
+  lastUploadedFileName = req.files[0].originalname;
   res.status(200).send('OK');
 });
-// to do: parsowanie pliku ze ściezki na serwerze
 
 port = (process.env.PORT || '3000')
-
 app.listen(port, function() {
    console.log("Listening, sir.");
 });

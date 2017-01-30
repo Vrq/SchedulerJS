@@ -4,6 +4,9 @@
   justify-content: center;
   align-items: center;
 }*/
+#hiddenDiv {
+  display: none;
+}
 .uploadButtonDiv {
   background-color: #994d00;
   width: 32%;
