@@ -1,34 +1,8 @@
-const express = require('express');
-const multer = require('multer');
+var http = require('http');
 
-const app = express();
+http.createServer(function (req, res) {
 
-//file upload config
-const storage = multer.diskStorage({
-    destination: './uploaded_files',
-    filename: function(req, file, cb) {
-      cb(null, file.originalname)
-    }
-})
-const uploadingConfig = multer({
-  storage: storage,
-  limits: {filesize: 10000000}
-}).array('files')
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end('Hello, world!');
 
-app.use(express.static('public'));
-
-
-//Routes:
-app.get('/', function(req, res) {
-   res.sendFile(__dirname + '/public/index.html');
- });
-app.post('/upload', uploadingConfig, function(req, res) {
-  console.log('Z serwera 3');
-  console.log(req.files[0])
-  res.status(200).send('OK');
-});
-// to do: parsowanie pliku ze ściezki na serwerze
-
-app.listen(8080, function() {
-   console.log("Listening, sir.");
-});
+}).listen(process.env.PORT || 8080);
