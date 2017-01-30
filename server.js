@@ -29,6 +29,6 @@ app.post('/upload', uploadingConfig, function(req, res) {
 });
 // to do: parsowanie pliku ze ściezki na serwerze
 
-app.listen(3000, function() {
+app.listen(8080, function() {
    console.log("Listening, sir.");
 });

@@ -4,6 +4,7 @@
   "description": "A way to schedule",
   "main": "server.js",
   "scripts": {
+    "start": "node server",
     "dev": "nodemon server.js",
     "test": "test"
   },
@@ -28,5 +29,8 @@
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
+  },
+  "engines": {
+    "node": "~0.10.0 || ~4.2.0"
   }
 }
