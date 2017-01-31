@@ -5,15 +5,14 @@
         <link rel="stylesheet" type="text/css" href="css/importDataStylesheet.css">
         <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
         <script type="text/javascript" src="scripts/data_mining.js" charset="utf-8"></script>
-        <script type="text/javascript" src="scripts/read_csv.js" charset="utf-8"></script>
-
-
+        <script type="text/javascript" src="scripts/readCSV.js" charset="utf-8"></script>
     </head>
     <div class="theGreatDiv">
       <div class="importPageContainer">
         <div class="uploadContainer">
           <p>Select a file in CSV format to import data</p>
-          <input type="file" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv" name="Choosefile">
+          <input type="file" class="filestyle" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv" name="Choosefile">
+          <input type="button" value="Click to select file" id="chooseFileButton"/>
         </div>
         <progress id="progress" value="0"></progress>
         <div class="uploadButtonDiv" id="showDataButton">Show Data</div>

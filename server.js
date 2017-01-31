@@ -1,6 +1,6 @@
 const express = require('express');
 const multer = require('multer');
-
+const fileController = require('./logic/fileController');
 const app = express();
 
 //file upload config
@@ -26,11 +26,17 @@ app.get('/', function(req, res) {
 app.get('/uploaded_file', function(req, res) {
   console.log(lastUploadedFileName);
   //przeparsowac plik na serwerze do listy obiektow (zdarzen) i wysylac do klienta
-  res.sendFile(__dirname + '/uploaded_files/' + lastUploadedFileName);
+  if(lastUploadedFileName != null) {
+    fileController.crazyClown();
+    res.sendFile(__dirname + '/uploaded_files/' + lastUploadedFileName);
+  } else {
+    res.status(200).send(null);
+  }
 });
 
 app.post('/upload', uploadingConfig, function(req, res) {
   lastUploadedFileName = req.files[0].originalname;
+  fileController.parseFile(lastUploadedFileName);
   res.status(200).send('OK');
 });
 

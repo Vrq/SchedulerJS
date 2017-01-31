@@ -7,6 +7,16 @@
 #hiddenDiv {
   display: none;
 }
+#csvFileInput {
+  display: none;
+}
+#chooseFileButton {
+  height: 5%;
+  width: 10%;
+  border: none;
+  background-color: #028090;
+  font-size: 2vmin;
+}
 .uploadButtonDiv {
   background-color: #994d00;
   width: 32%;
