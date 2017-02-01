@@ -3,7 +3,7 @@ body {
 }
 .theGreatDiv {
   text-align: center;
-  font-family: "Helvetica Neue";
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 6vmin;
   color: #f1faee;
 }
