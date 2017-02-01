@@ -17,6 +17,9 @@
   background-color: #028090;
   font-size: 2vmin;
 }
+#chooseFileButton:hover {
+  background-color: #2a9d8f;
+}
 .uploadButtonDiv {
   background-color: #994d00;
   width: 32%;
