@@ -18,6 +18,16 @@ p {
 #chooseFileButton:hover {
   background-color: #2a9d8f;
 }
+#uploadedFileTable {
+  border: 1px solid black;
+  margin: 1% auto;
+
+}
+#hiddenDiv {
+  margin: 1% auto;
+  border: 1px solid black;
+
+}
 .importMenuButton {
   width: 32%;
   height: 15%;

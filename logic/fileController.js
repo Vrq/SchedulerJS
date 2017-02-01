@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const csvParser = require('csvtojson')
+const csvParser = require('csvtojson');
 
 exports.crazyClown = function() {
   console.log("Why so serious?!")
@@ -8,7 +8,7 @@ exports.crazyClown = function() {
 
 exports.parseFile = function(fileName) {
   var filePath = path.join(__dirname, "..", "uploaded_files", fileName)
-  csvParser()
+  csvParser({noheader:true, delimiter: [";",","]})
     .fromFile(filePath)
     .on('json', (jsonObj) => {
       console.log(jsonObj);

@@ -31,7 +31,9 @@ $(document).ready(function() {
       type: 'GET',
       success: function(response) {
         //dodac wypisywanie danych w tabeli
+        $("#uploadedFileTable").append('<tr><td>my data</td><td>more data</td></tr>');
         console.log(response)
+
       }
     });
   });
