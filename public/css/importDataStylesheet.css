@@ -1,9 +1,3 @@
-/*.importPageContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}*/
 #hiddenDiv {
   display: none;
 }
@@ -12,16 +6,16 @@
 }
 #chooseFileButton {
   height: 5%;
-  width: 10%;
+  width: 32%;
   border: none;
-  background-color: #028090;
-  font-size: 2vmin;
+  background-color: #2962ff;
+  color: #f1faee;
+  font-size: 3vmin;
 }
 #chooseFileButton:hover {
   background-color: #2a9d8f;
 }
-.uploadButtonDiv {
-  background-color: #994d00;
+.importMenuButton {
   width: 32%;
   height: 15%;
   margin: 3% auto;
@@ -29,11 +23,9 @@
   padding-top: 3%;
   padding-bottom: 0%;
 }
-.uploadButtonDiv:hover {
-  background-color: #d7690f;
-}
 progress {
-  color: #2a9d8f;
+  color: #1b5e20;
+  width: 32%;
   margin: 1% auto;
   background-color: 'gray';
   border: 0;
@@ -41,8 +33,8 @@ progress {
 }
 /*progress bar color for mozilla, opera and chrome*/
 progress::-moz-progress-bar {
-  background: #2a9d8f;
+  background: #1b5e20;
 }
 progress::-webkit-progress-value {
-  background: #2a9d8f;
+  background: #1b5e20;
 }
