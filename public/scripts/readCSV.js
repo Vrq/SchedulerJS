@@ -24,6 +24,7 @@ function handleFiles(files) {
 //Show uploaded files by downloading it again from the server:
 $(document).ready(function() {
   $("#showDataButton").click(function() {
+    console.log("click")
     $("#hiddenDiv").slideToggle("fast");
     $.ajax({
       url: '/uploaded_file',

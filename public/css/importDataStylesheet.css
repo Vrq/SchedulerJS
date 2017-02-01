@@ -1,3 +1,6 @@
+p {
+  color: #2962ff;
+}
 #hiddenDiv {
   display: none;
 }
@@ -5,7 +8,7 @@
   display: none;
 }
 #chooseFileButton {
-  height: 5%;
+  height: 10%;
   width: 32%;
   border: none;
   background-color: #2962ff;
@@ -24,7 +27,7 @@
   padding-bottom: 0%;
 }
 progress {
-  color: #1b5e20;
+  color: #2a9d8f;
   width: 32%;
   margin: 1% auto;
   background-color: 'gray';
@@ -33,8 +36,8 @@ progress {
 }
 /*progress bar color for mozilla, opera and chrome*/
 progress::-moz-progress-bar {
-  background: #1b5e20;
+  background: #2a9d8f;
 }
 progress::-webkit-progress-value {
-  background: #1b5e20;
+  background: #2a9d8f;
 }
