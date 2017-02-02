@@ -24,11 +24,9 @@ app.get('/', function(req, res) {
  });
 
 app.get('/uploaded_file', function(req, res) {
-  console.log(lastUploadedFileName);
-  //przeparsowac plik na serwerze do listy obiektow (zdarzen) i wysylac do klienta
   if(lastUploadedFileName != null) {
-    fileController.crazyClown();
-    res.sendFile(__dirname + '/uploaded_files/' + lastUploadedFileName);
+    res.setHeader('Content-Type', 'application/json');
+    fileController.parseFile(lastUploadedFileName, res);
   } else {
     res.status(200).send(null);
   }
@@ -36,7 +34,6 @@ app.get('/uploaded_file', function(req, res) {
 
 app.post('/upload', uploadingConfig, function(req, res) {
   lastUploadedFileName = req.files[0].originalname;
-  fileController.parseFile(lastUploadedFileName);
   res.status(200).send('OK');
 });
 
