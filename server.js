@@ -26,7 +26,7 @@ app.get('/', function(req, res) {
 app.get('/uploaded_file', function(req, res) {
   if(lastUploadedFileName != null) {
     res.setHeader('Content-Type', 'application/json');
-    fileController.parseFile(lastUploadedFileName, res);
+    fileController.parseSendFile(lastUploadedFileName, res);
   } else {
     res.status(200).send(null);
   }

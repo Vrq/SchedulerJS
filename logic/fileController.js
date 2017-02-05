@@ -6,7 +6,7 @@ exports.crazyClown = function() {
   console.log("Why so serious?!")
 }
 
-exports.parseFile = function(fileName, callbackFunction) {
+exports.parseSendFile = function(fileName, res) {
   var filePath = path.join(__dirname, "..", "uploaded_files", fileName)
   var fileJSON = [];
   csvParser({noheader:true, delimiter: [";",","]})
@@ -16,7 +16,6 @@ exports.parseFile = function(fileName, callbackFunction) {
     })
     .on('done', (error) => {
       console.log('Parsing to json done');
-      callbackFunction.send(fileJSON);
+      res.send(fileJSON);
     });
-
 }
