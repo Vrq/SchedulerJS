@@ -2,6 +2,8 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/mainStylesheet.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <script type="text/javascript" src="scripts/readCSV.js" charset="utf-8"></script>
     </head>
     <body>
       <div class="theGreatDiv">
@@ -9,12 +11,17 @@
           <a href="importData.html">
             <div class="menuButtonDiv bigButton">Import data</div>
           </a>
-          <div class="menuButtonDiv bigButton">Get Schedule</div>
+          <a href="getSchedule.html">
+            <div class="menuButtonDiv bigButton">Get Schedule</div>
+          </a>
           <div class="menuButtonDiv bigButton">Export results</div>
         </div>
         <div class="menuButtonDiv smallButton">Placeholder</div>
-        <div class="menuButtonDiv smallButton">Current Dataset</div>
-        <div class="menuButtonDiv smallButton">Share Feedback</div>
+        <div class="menuButtonDiv smallButton" id="showDatasetButton">Current Dataset</div>
+        <a href="mailto:januszveiro@gmail.com?Subject=ScheduleJS-feedback">
+          <div class="menuButtonDiv smallButton">Share Feedback</div>
+        </a>
+        <div id="hiddenDiv"></div>
       </div>
     </body>
 </html>

@@ -1,6 +1,17 @@
 body {
     background-color: #c3f8a1;
 }
+#uploadedFileTable {
+  margin: 1% auto;
+}
+#uploadedFileTable > tr > td{
+  border: 1px solid black;
+  background-color: #dddddd;
+}
+#hiddenDiv {
+  display: none;
+  margin: 1% auto;
+}
 .theGreatDiv {
   text-align: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;

@@ -24,12 +24,12 @@ function handleFiles(files) {
 }
 //Show uploaded files by downloading it again from the server:
 $(document).ready(function() {
-  $("#showDataButton").click(function() {
-    $("#hiddenDiv").slideToggle("fast");
+  $("#showDatasetButton").click(function() {
     $.ajax({
       url: '/uploaded_file',
       type: 'GET',
       success: function(response) {
+        $("#hiddenDiv").slideToggle("fast");
         if($("#hiddenDiv").children().length == 0) {
           $("#hiddenDiv").append('<table id="uploadedFileTable"></table>');
           for(row of response) {
