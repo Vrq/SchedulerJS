@@ -3,6 +3,7 @@ const multer = require('multer');
 const fileController = require('./logic/fileController');
 const path = require('path');
 const app = express();
+
 //file upload config
 const storage = multer.diskStorage({
     destination: './uploaded_files',
@@ -24,21 +25,23 @@ app.get('/', function(req, res) {
    res.sendFile(__dirname + '/public/index.html');
  });
 
+//send last uploaded file to client as json object
 app.get('/uploaded_file', function(req, res) {
    if(lastUploadedFileName != null) {
      res.setHeader('Content-Type', 'application/json');
-     res.sendFile(path.join(__dirname, "uploaded_files", "file.json"));
-     //fileController.parseSendFile(lastUploadedFileName, res);
+     res.sendFile(path.join(__dirname, "uploaded_files", lastUploadedFileName + ".json"));
    } else {
      res.status(404).send("File not found");
    }
 });
 
+//parse uploaded file to json and save on server
 app.post('/upload', uploadingConfig, function(req, res) {
   lastUploadedFileName = req.files[0].originalname;
-  fileController.parseOnlyFile(lastUploadedFileName, function(err) {
+  lastUploadedFileName = lastUploadedFileName.substring(0, lastUploadedFileName.indexOf('.'));
+  fileController.parseAndSave(lastUploadedFileName, function(err) {
     if(err) {
-      res.status(400).send("File not saved");
+      res.status(404).send("File not saved");
       return;
     }
   res.send("File saved on server as json");
