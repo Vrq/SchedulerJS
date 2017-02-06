@@ -37,7 +37,7 @@ app.get('/uploaded_file', function(req, res) {
 });
 
 app.get('/get_schedule/johnson', function(req, res) {
-  fileController.
+  taskScheduler.JohnsonAlgorithm(lastUploadedFileName, function())
   res.send("Johnson!!")
 })
 
