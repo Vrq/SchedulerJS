@@ -1,6 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const fileController = require('./logic/fileController');
+const taskScheduler = require('./logic/taskScheduler');
 const path = require('path');
 const app = express();
 
@@ -34,6 +35,11 @@ app.get('/uploaded_file', function(req, res) {
      res.status(404).send("File not found");
    }
 });
+
+app.get('/get_schedule/johnson', function(req, res) {
+  fileController.
+  res.send("Johnson!!")
+})
 
 //parse uploaded file to json and save on server
 app.post('/upload', uploadingConfig, function(req, res) {
