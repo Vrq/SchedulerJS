@@ -17,7 +17,7 @@ const uploadingConfig = multer({
   limits: {filesize: 10000000}
 }).array('files')
 
-var lastUploadedFileName = null;
+var lastUploadedFileName = "comma";
 
 app.use(express.static('public'));
 
@@ -36,10 +36,10 @@ app.get('/uploaded_file', function(req, res) {
    }
 });
 
+//TODO: Add description how the uploaded file should look like (columns, values)
 app.get('/get_schedule/johnson', function(req, res) {
-  taskScheduler.JohnsonAlgorithm(lastUploadedFileName, function())
-  res.send("Johnson!!")
-})
+  taskScheduler.JohnsonAlgorithm(lastUploadedFileName, res);
+});
 
 //parse uploaded file to json and save on server
 app.post('/upload', uploadingConfig, function(req, res) {

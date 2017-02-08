@@ -32,8 +32,9 @@ $(document).ready(function() {
         $("#hiddenDiv").slideToggle("fast");
         if($("#hiddenDiv").children().length == 0) {
           $("#hiddenDiv").append('<table id="uploadedFileTable"></table>');
+          $("#uploadedFileTable").append("<tr><td>Task</td><td>Time on M1</td><td>Time on M2</td><td>Time on M3</td></tr>");
           for(row of response) {
-            $("#uploadedFileTable").append("<tr><td>"+row.field1+"</td><td>"+row.field2+"</td><td>"+row.field3+"</td><td>"+row.field4+"</td></tr>");
+            $("#uploadedFileTable").append("<tr><td>"+row.Task+"</td><td>"+row.M1Time+"</td><td>"+row.M2Time+"</td><td>"+row.M3Time+"</td></tr>");
           }
         }
       }
