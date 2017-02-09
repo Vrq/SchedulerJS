@@ -4,7 +4,11 @@ $(document).ready(function() {
       url: '/get_schedule/johnson',
       type: 'GET',
       success: function(response) {
-        console.log(response)
+        if(typeof response == "undefined" || response == "") {
+          $("#JohnsonButton").hide().fadeIn(200).text("Cannot use for this dataset");
+        } else {
+          console.log("We've got the answer")
+        }
       }
     });
   });
