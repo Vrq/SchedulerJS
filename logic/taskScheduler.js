@@ -23,11 +23,33 @@ exports.JohnsonAlgorithm = function(fileName, res) {
       }
     }
     var isJohnsonApplicable = (minM1Time >= maxM2Time && minM3Time >= maxM2Time);
-    if(isJohnsonApplicable) {
-      res.send("Results");
+    if(isJohnsonApplicable) { //revert  this logical expression when its ready
+      res.send(null);
     }
     else {
-      res.send(null);
+      var newTasksArray = [];
+      for(task of file) {
+        newTasksArray.push({"Task": task.Task, "M1pTime": task.M1Time + task.M2Time, "M2pTime": task.M2Time + task.M3Time});
+      }
+      var m1TimeLowerArray = [];
+      var m2TimeLowerOrEqualArray = [];
+      for(task of newTasksArray) { //test case: are those arrays filled correctly
+        if(task.M1pTime < task.M2pTime) {
+          m1TimeLowerArray.push(task);
+        } else {
+          m2TimeLowerOrEqualArray.push(task);
+        }
+      }
+      m1TimeLowerArray.sort( function(task1, task2) {
+        return task1.M1pTime - task2.M1pTime;
+      });
+      m2TimeLowerOrEqualArray.sort( function(task1, task2) {
+        return task2.M2pTime - task1.M2pTime;
+      });
+      res.setHeader('Content-Type', 'application/json');
+      //w ktorym momencie mapujemy to na oryginalne taski? tutaj czy po stronie klienta?
+      res.send(m1TimeLowerArray.concat(m2TimeLowerOrEqualArray));
+
     }
   })
 }
