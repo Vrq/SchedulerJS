@@ -19,7 +19,10 @@ function handleFiles(files) {
       }
       return myXhr;
     },
-    success: function(data) {console.log('upload successful!');}
+    success: function(response) {
+      localStorage.setItem('dataSet', JSON.stringify(response));
+      console.log('upload successful!');
+    }
   });
 }
 //Show uploaded files by downloading it again from the server:
@@ -33,7 +36,8 @@ $(document).ready(function() {
         if($("#hiddenDiv").children().length == 0) {
           $("#hiddenDiv").append('<table id="uploadedFileTable"></table>');
           $("#uploadedFileTable").append("<tr><td>Task</td><td>Time on M1</td><td>Time on M2</td><td>Time on M3</td></tr>");
-          for(row of response) {
+          for(var rowNumber in response) {
+            row = response[rowNumber];
             $("#uploadedFileTable").append("<tr><td>"+row.Task+"</td><td>"+row.M1Time+"</td><td>"+row.M2Time+"</td><td>"+row.M3Time+"</td></tr>");
           }
         }

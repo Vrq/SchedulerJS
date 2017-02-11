@@ -11,7 +11,8 @@ exports.JohnsonAlgorithm = function(fileName, res) {
     var minM1Time = Infinity;
     var maxM2Time = 0;
     var minM3Time= Infinity;
-    for(task of file) { //test case: are those time calculcated correctly
+    for(var taskNumber in file) { //test case: are those time calculcated correctly
+      task = file[taskNumber];
       if(task.M1Time < minM1Time) {
         minM1Time = task.M1Time;
       }
@@ -28,8 +29,9 @@ exports.JohnsonAlgorithm = function(fileName, res) {
     }
     else {
       var newTasksArray = [];
-      for(task of file) {
-        newTasksArray.push({"Task": task.Task, "M1pTime": task.M1Time + task.M2Time, "M2pTime": task.M2Time + task.M3Time});
+      for(var taskNumber in file) {
+        task = file[taskNumber];
+        newTasksArray.push({"Task": task.Task, "M1pTime": task.M1Time + task.M2Time, "M2pTime": task.M2Time + task.M3Time, "TaskNumber": taskNumber});
       }
       var m1TimeLowerArray = [];
       var m2TimeLowerOrEqualArray = [];

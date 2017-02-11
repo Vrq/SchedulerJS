@@ -50,7 +50,8 @@ app.post('/upload', uploadingConfig, function(req, res) {
       res.status(404).send("File not saved");
       return;
     }
-  res.send("File saved on server as json");
+    res.setHeader('Content-Type', 'application/json');
+    res.sendFile(path.join(__dirname, "uploaded_files", lastUploadedFileName + ".json"));
   });
 });
 
