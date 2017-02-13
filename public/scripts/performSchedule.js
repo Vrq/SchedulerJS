@@ -21,12 +21,12 @@ function displayResult(response) {
   $("#hiddenDiv").slideToggle("fast");
   if($("#hiddenDiv").children().length == 0) {
     $("#hiddenDiv").append('<table id="uploadedFileTable"></table>');
-    $("#uploadedFileTable").append("<tr><td>Task</td><td>Time on M1</td><td>Time on M2</td><td>Time on M3</td></tr>");
+    //$("#uploadedFileTable").append("<tr><td>Task</td><td>Time on M1</td><td>Time on M2</td><td>Time on M3</td></tr>");
     var scheduledDataSet = [];
     for(resRow of response) { //loop through sorted task set and display each task
       var row = dataSet[resRow.TaskNumber];
       scheduledDataSet.push(row);
-      $("#uploadedFileTable").append("<tr><td>"+row.Task+"</td><td>"+row.M1Time+"</td><td>"+row.M2Time+"</td><td>"+row.M3Time+"</td></tr>");
+      //$("#uploadedFileTable").append("<tr><td>"+row.Task+"</td><td>"+row.M1Time+"</td><td>"+row.M2Time+"</td><td>"+row.M3Time+"</td></tr>");
     }
     drawGanttChart(scheduledDataSet);
   }
@@ -48,7 +48,7 @@ function drawGanttChart(scheduledDataSet) {
     task.M3Start = M3FreeAt > task.M2Stop ? M3FreeAt : task.M2Stop;
     task.M3Stop = task.M3Start + task.M3Time;
     M3FreeAt += task.M3Time;
+    console.log(task)
   }
-  console.log(scheduledDataSet);
-  // console.log(scheduledDataSet);
+  displayGanttChart(scheduledDataSet)
 }
