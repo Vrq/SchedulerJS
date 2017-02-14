@@ -1,5 +1,26 @@
+.tooltip {
+    background: #eee;
+    box-shadow: 0 0 5px #999999;
+    color: #333;
+    font-size: 12px;
+    left: 130px;
+    padding: 10px;
+    position: absolute;
+    text-align: center;
+    top: 95px;
+    z-index: 10;
+    display: block;
+    opacity: 0;
+}
+.bar:hover {
+  opacity: 1;
+}
+.bar {
+  opacity: 0.75;
+}
+
 body {
-    background-color: #c3f8a1;
+    background-color: #ffffff;
 }
 #uploadedFileTable {
   margin: 1% auto;

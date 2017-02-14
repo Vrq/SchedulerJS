@@ -39,15 +39,15 @@ function drawGanttChart(scheduledDataSet) {
   for(task of scheduledDataSet) {
     task.M1Start = M1FreeAt;
     task.M1Stop = task.M1Start + task.M1Time;
-    M1FreeAt += task.M1Time;
+    M1FreeAt = task.M1Stop;
 
     task.M2Start = M2FreeAt > task.M1Stop ? M2FreeAt : task.M1Stop;
     task.M2Stop = task.M2Start + task.M2Time;
-    M2FreeAt += task.M2Time;
+    M2FreeAt = task.M2Stop;
 
     task.M3Start = M3FreeAt > task.M2Stop ? M3FreeAt : task.M2Stop;
     task.M3Stop = task.M3Start + task.M3Time;
-    M3FreeAt += task.M3Time;
+    M3FreeAt = task.M3Stop;
     console.log(task)
   }
   displayGanttChart(scheduledDataSet)
