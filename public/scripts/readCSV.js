@@ -2,6 +2,7 @@
 function handleFiles(files) {
   var formData = new FormData();
   var progressBar = document.getElementById("progress");
+  progressBar.value = 0;
   formData.append('files', files[0], files[0].name);
   $.ajax({
     url: '/upload',
@@ -21,31 +22,46 @@ function handleFiles(files) {
     },
     success: function(response) {
       localStorage.setItem('dataSet', JSON.stringify(response));
+      $("#exampleDataSetButton").css('background-color', '#534343');
+      $("#exampleDataSetButton").text("Use example dataset");
       console.log('upload successful!');
     }
   });
 }
-//Show uploaded files by downloading it again from the server:
+
 $(document).ready(function() {
+
   $("#showDatasetButton").click(function() {
-    $.ajax({
-      url: '/uploaded_file',
-      type: 'GET',
-      success: function(response) {
-        $("#hiddenDiv").slideToggle("fast");
-        if($("#hiddenDiv").children().length == 0) {
-          $("#hiddenDiv").append('<table id="uploadedFileTable"></table>');
-          $("#uploadedFileTable").append("<tr><td>Task</td><td>Time on M1</td><td>Time on M2</td><td>Time on M3</td></tr>");
-          for(var rowNumber in response) {
-            row = response[rowNumber];
-            $("#uploadedFileTable").append("<tr><td>"+row.Task+"</td><td>"+row.M1Time+"</td><td>"+row.M2Time+"</td><td>"+row.M3Time+"</td></tr>");
-          }
-        }
+    var response = JSON.parse(localStorage.getItem('dataSet'));
+    var hiddenDiv = $("#hiddenDiv");
+    hiddenDiv.slideToggle("fast");
+    hiddenDiv.empty();
+    if(hiddenDiv.children().length == 0) {
+      hiddenDiv.append('<table id="uploadedFileTable"></table>');
+      $("#uploadedFileTable").append("<tr><td>Task</td><td>Time on M1</td><td>Time on M2</td><td>Time on M3</td></tr>");
+      for(var rowNumber in response) {
+        row = response[rowNumber];
+        $("#uploadedFileTable").append("<tr><td>"+row.Task+"</td><td>"+row.M1Time+"</td><td>"+row.M2Time+"</td><td>"+row.M3Time+"</td></tr>");
       }
-    });
+    }
   });
 
   $("#chooseFileButton").click(function() {
     $("#csvFileInput").click();
   });
+
+  $("#exampleDataSetButton").click(function() {
+    $.ajax({
+      url: '/example_dataset',
+      type: 'GET',
+      success: function(response) {
+        localStorage.setItem('dataSet', JSON.stringify(response));
+        document.getElementById("progress").value = 0;
+        $("#exampleDataSetButton").css('background-color', '#2a9d8f');
+        $("#exampleDataSetButton").hide().fadeIn(200).text("Example data loaded");
+        console.log('example dataset loaded');
+      }
+    });
+  });
+
 });

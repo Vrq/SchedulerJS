@@ -26,14 +26,10 @@ app.get('/', function(req, res) {
    res.sendFile(__dirname + '/public/index.html');
  });
 
-//send last uploaded file to client as json object
-app.get('/uploaded_file', function(req, res) {
-   if(lastUploadedFileName != null) {
-     res.setHeader('Content-Type', 'application/json');
-     res.sendFile(path.join(__dirname, "uploaded_files", lastUploadedFileName + ".json"));
-   } else {
-     res.status(404).send("File not found");
-   }
+app.get('/example_dataset', function(req, res) {
+  lastUploadedFileName = "exampleDataSet";
+  res.setHeader('Content-Type', 'application/json');
+  res.sendFile(path.join(__dirname, "sample", lastUploadedFileName + ".json"));
 });
 
 //TODO: Add description how the uploaded file should look like (columns, values)
