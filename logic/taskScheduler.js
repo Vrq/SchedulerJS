@@ -23,8 +23,8 @@ exports.JohnsonAlgorithm = function(fileName, res) {
         maxM2Time = task.M2Time;
       }
     }
-    var isJohnsonApplicable = (minM1Time >= maxM2Time && minM3Time >= maxM2Time);
-    if(isJohnsonApplicable) { //revert  this logical expression when its ready
+    var isJohnsonApplicable = (minM1Time >= maxM2Time || minM3Time >= maxM2Time);
+    if(!isJohnsonApplicable) { 
       res.send(null);
     }
     else {

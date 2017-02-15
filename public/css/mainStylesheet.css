@@ -18,9 +18,12 @@
 .bar {
   opacity: 0.75;
 }
-
+#svgDiv {
+  fill: #534343;
+  text-align: center;
+}
 body {
-    background-color: #ffffff;
+    background-color: #f1f1d1;
 }
 #uploadedFileTable {
   margin: 1% auto;
@@ -37,7 +40,7 @@ body {
   text-align: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 4vmin;
-  color: #f1faee;
+  color: #534343;
 }
 a {
   color: #f1faee;
@@ -45,8 +48,9 @@ a {
   cursor: default;
 }
 .menuButtonDiv {
-  background-color: #2962ff;
+  background-color: #534343;
   white-space: pre-line;
+  color: #f1faee;
 }
 .menuButtonDiv:hover {
   background-color: #0d47a1;

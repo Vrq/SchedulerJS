@@ -1,4 +1,8 @@
 function displayGanttChart(scheduledDataSet) {
+  var totalTimeDiv = d3.select("#totalTime");
+  var totalEndTime = d3.max(scheduledDataSet, function(d) { return d.M3Stop });
+  totalTimeDiv.append("p")
+              .text("Total project time: " + totalEndTime);
   var vis = d3.select("#scheduleVisualisation");
   console.log(vis[0])
   var WIDTH = 800;
@@ -13,7 +17,7 @@ function displayGanttChart(scheduledDataSet) {
       //  axis.domain(array.map(function (d) { return d.value; }))
   var xScale = d3.scale.linear()
                       .range([MARGINS.left, WIDTH - MARGINS.right])
-                      .domain([0,d3.max(scheduledDataSet, function(d) { return d.M3Stop })]);
+                      .domain([0, totalEndTime]);
   var yScale = d3.scale.ordinal()
                       .rangeRoundBands([ 0, HEIGHT - MARGINS.bottom ], .1)
                       .domain(roleLabels);
@@ -29,7 +33,7 @@ function displayGanttChart(scheduledDataSet) {
   vis.append("rect")
     .attr("width", "100%")
     .attr("height", "100%")
-    .attr("fill", "#f1f1f1");
+    .attr("fill", "#f1f1d1");
   vis.append("svg:g").attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")").call(xAxis);
   vis.append("svg:g").attr("transform", "translate(" + (MARGINS.left) + ",0)").call(yAxis);
 

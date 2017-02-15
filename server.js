@@ -17,7 +17,7 @@ const uploadingConfig = multer({
   limits: {filesize: 10000000}
 }).array('files')
 
-var lastUploadedFileName = "comma";
+var lastUploadedFileName = "exampleDataSet";
 
 app.use(express.static('public'));
 
