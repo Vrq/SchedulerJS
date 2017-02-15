@@ -1,29 +1,10 @@
-.tooltip {
-    background: #eee;
-    box-shadow: 0 0 5px #999999;
-    color: #333;
-    font-size: 12px;
-    left: 130px;
-    padding: 10px;
-    position: absolute;
-    text-align: center;
-    top: 95px;
-    z-index: 10;
-    display: block;
-    opacity: 0;
-}
-.bar:hover {
-  opacity: 1;
-}
-.bar {
-  opacity: 0.75;
-}
-#svgDiv {
-  fill: #534343;
-  text-align: center;
-}
 body {
     background-color: #f1f1d1;
+}
+a {
+  color: #f1faee;
+  text-decoration: none;
+  cursor: default;
 }
 #uploadedFileTable {
   margin: 1% auto;
@@ -36,16 +17,15 @@ body {
   display: none;
   margin: 1% auto;
 }
+#backButtonDiv {
+  width: 32%;
+  margin: 3% auto;
+}
 .theGreatDiv {
   text-align: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 4vmin;
   color: #534343;
-}
-a {
-  color: #f1faee;
-  text-decoration: none;
-  cursor: default;
 }
 .menuButtonDiv {
   background-color: #534343;
@@ -71,5 +51,4 @@ a {
   display: inline-block;
   padding-top: 3%;
   padding-bottom: 7%;
-  font-size: 5vmin;
 }

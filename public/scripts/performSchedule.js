@@ -9,7 +9,6 @@ $(document).ready(function() {
         } else {
           console.log("We've got the answer")
           displayResult(response);
-          console.log(localStorage.getItem('mojazmienna'));
         }
       }
     });

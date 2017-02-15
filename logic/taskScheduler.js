@@ -24,7 +24,7 @@ exports.JohnsonAlgorithm = function(fileName, res) {
       }
     }
     var isJohnsonApplicable = (minM1Time >= maxM2Time || minM3Time >= maxM2Time);
-    if(!isJohnsonApplicable) { 
+    if(!isJohnsonApplicable) {
       res.send(null);
     }
     else {
@@ -49,9 +49,7 @@ exports.JohnsonAlgorithm = function(fileName, res) {
         return task2.M2pTime - task1.M2pTime;
       });
       res.setHeader('Content-Type', 'application/json');
-      //w ktorym momencie mapujemy to na oryginalne taski? tutaj czy po stronie klienta?
       res.send(m1TimeLowerArray.concat(m2TimeLowerOrEqualArray));
-
     }
   })
 }
