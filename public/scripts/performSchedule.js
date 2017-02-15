@@ -8,30 +8,20 @@ $(document).ready(function() {
           $("#JohnsonButton").hide().fadeIn(200).text("Cannot use for this dataset");
         } else {
           console.log("We've got the answer")
-          displayResult(response);
+          drawGanttChart(response);
         }
       }
     });
   });
 });
 
-function displayResult(response) {
+function drawGanttChart(response) {
   var dataSet = JSON.parse(localStorage.getItem('dataSet'));
-  $("#hiddenDiv").slideToggle("fast");
-  if($("#hiddenDiv").children().length == 0) {
-    $("#hiddenDiv").append('<table id="uploadedFileTable"></table>');
-    //$("#uploadedFileTable").append("<tr><td>Task</td><td>Time on M1</td><td>Time on M2</td><td>Time on M3</td></tr>");
-    var scheduledDataSet = [];
-    for(resRow of response) { //loop through sorted task set and display each task
-      var row = dataSet[resRow.TaskNumber];
-      scheduledDataSet.push(row);
-      //$("#uploadedFileTable").append("<tr><td>"+row.Task+"</td><td>"+row.M1Time+"</td><td>"+row.M2Time+"</td><td>"+row.M3Time+"</td></tr>");
-    }
-    drawGanttChart(scheduledDataSet);
+  var scheduledDataSet = [];
+  for(resRow of response) { //loop through sorted task set and display each task
+    var row = dataSet[resRow.TaskNumber];
+    scheduledDataSet.push(row);
   }
-}
-
-function drawGanttChart(scheduledDataSet) {
   var M1FreeAt = 0
   var M2FreeAt = 0
   var M3FreeAt = 0;
@@ -47,7 +37,6 @@ function drawGanttChart(scheduledDataSet) {
     task.M3Start = M3FreeAt > task.M2Stop ? M3FreeAt : task.M2Stop;
     task.M3Stop = task.M3Start + task.M3Time;
     M3FreeAt = task.M3Stop;
-    console.log(task)
   }
-  displayGanttChart(scheduledDataSet)
+  displayGanttChart(scheduledDataSet) //d3chart.js
 }

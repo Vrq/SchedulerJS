@@ -1,10 +1,10 @@
 function displayGanttChart(scheduledDataSet) {
   var totalTimeDiv = d3.select("#totalTime");
   var totalEndTime = d3.max(scheduledDataSet, function(d) { return d.M3Stop });
-  totalTimeDiv.append("p")
+  totalTimeDiv.select("p")
               .text("Total project time: " + totalEndTime);
   var vis = d3.select("#scheduleVisualisation");
-  console.log(vis[0])
+  vis.selectAll("*").remove();
   var WIDTH = 800;
   var HEIGHT = 400;
   var MARGINS = {
@@ -14,7 +14,7 @@ function displayGanttChart(scheduledDataSet) {
           left: 150
       };
   var roleLabels = ["Product Manager", "Software Developer", "Quality Assurance"];
-      //  axis.domain(array.map(function (d) { return d.value; }))
+
   var xScale = d3.scale.linear()
                       .range([MARGINS.left, WIDTH - MARGINS.right])
                       .domain([0, totalEndTime]);
@@ -24,21 +24,21 @@ function displayGanttChart(scheduledDataSet) {
 
   var xAxis = d3.svg.axis()
                     .scale(xScale);
-
   var yAxis = d3.svg.axis()
                     .scale(yScale)
                     .orient("left")
                     .ticks(3);
-
+//background color for the svg:
   vis.append("rect")
     .attr("width", "100%")
     .attr("height", "100%")
     .attr("fill", "#f1f1d1");
+  //draw axis
   vis.append("svg:g").attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")").call(xAxis);
   vis.append("svg:g").attr("transform", "translate(" + (MARGINS.left) + ",0)").call(yAxis);
-
-//  vis.append("rect").attr("x", 25).attr("y", 25).attr("width", 25).attr("height", 25).style("fill", "purple");
+//colorful tasks:
   var color = d3.scale.category20();
+
   var bodySelection = d3.select("body");
 
   var m1Bars = vis.selectAll(".m1Bar")
@@ -83,6 +83,7 @@ function displayGanttChart(scheduledDataSet) {
   tooltip.append('div')
   		  .attr('class', 'timeInfo');
 
+//not proud of it but now I really do not have the time nor the idea to refactor it
   vis.selectAll(".m1Bar")
 		.on('mouseover', function(d) {
 			tooltip.select('.taskInfo').html("<b>Task: " + d.Task + "</b>");
