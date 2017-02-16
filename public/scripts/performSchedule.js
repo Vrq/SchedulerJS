@@ -8,6 +8,8 @@ $(document).ready(function() {
           $("#JohnsonButton").hide().fadeIn(200).text("Cannot use for this dataset");
         } else {
           console.log("We've got the answer")
+          var hiddenDiv = $("#hiddenDiv");
+          hiddenDiv.slideToggle("fast");
           drawGanttChart(response);
         }
       }

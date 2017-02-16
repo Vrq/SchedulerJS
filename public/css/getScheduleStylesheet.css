@@ -1,3 +1,7 @@
+#svgDiv {
+  fill: #534343;
+  text-align: center;
+}
 .tooltip {
     background: #eee;
     box-shadow: 0 0 5px #999999;
@@ -18,7 +22,12 @@
 .bar {
   opacity: 0.75;
 }
-#svgDiv {
-  fill: #534343;
-  text-align: center;
+.littleMenuButton {
+  width: 14%;
+  height: 0%;
+  margin: 1% auto;
+  background-color: #534343;
+  color: #f1faee;
+  padding-top: 0.5%;
+  padding-bottom: 2%;
 }
