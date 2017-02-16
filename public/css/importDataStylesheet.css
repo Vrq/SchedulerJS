@@ -8,12 +8,19 @@
   height: 10%;
   width: 32%;
   border: none;
+  margin: 2% auto;
   background-color: #004f00;
   color: #f1faee;
   font-size: 3vmin;
 }
 #chooseFileButton:hover {
   background-color: #2a9d8f;
+}
+#helpDiv {
+  width: 32%;
+  margin: 1% auto;
+  background-color: #f7f7e7;
+  border: 1px solid #534343;
 }
 .importMenuButton {
   width: 32%;

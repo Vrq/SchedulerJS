@@ -6,11 +6,11 @@ a {
   text-decoration: none;
   cursor: default;
 }
-#uploadedFileTable {
-  margin: 1% auto;
+.dataSetTable {
+  margin: 0.5% auto;
 }
-#uploadedFileTable > tr > td{
-  border: 1px solid black;
+.dataSetTable > tbody > tr > td{
+  border: 2px solid #534343;
   background-color: #dddddd;
 }
 #hiddenDiv {
@@ -24,12 +24,12 @@ a {
 .theGreatDiv {
   text-align: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 4vmin;
   color: #534343;
 }
 .menuButtonDiv {
   background-color: #534343;
   white-space: pre-line;
+  font-size: 4vmin;
   color: #f1faee;
 }
 .menuButtonDiv:hover {

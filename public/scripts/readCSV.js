@@ -37,8 +37,8 @@ $(document).ready(function() {
     hiddenDiv.slideToggle("fast");
     hiddenDiv.empty();
     if(hiddenDiv.children().length == 0) {
-      hiddenDiv.append('<table id="uploadedFileTable"></table>');
-      $("#uploadedFileTable").append("<tr><td>Task</td><td>Time on M1</td><td>Time on M2</td><td>Time on M3</td></tr>");
+      hiddenDiv.append('<table id="uploadedFileTable" class="dataSetTable"></table>');
+      $("#uploadedFileTable").append("<tbody><tr><td>Task</td><td>Time on M1</td><td>Time on M2</td><td>Time on M3</td></tr></tbody>");
       for(var rowNumber in response) {
         row = response[rowNumber];
         $("#uploadedFileTable").append("<tr><td>"+row.Task+"</td><td>"+row.M1Time+"</td><td>"+row.M2Time+"</td><td>"+row.M3Time+"</td></tr>");
