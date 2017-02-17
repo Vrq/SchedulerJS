@@ -15,6 +15,18 @@ $(document).ready(function() {
       }
     });
   });
+
+  $("#exportScheduleButton").click(function() {
+    var dataSet = JSON.parse(localStorage.getItem('scheduledDataSet'));
+    var dataSetJSON = Object.values(dataSet)
+    var csv = Papa.unparse(dataSetJSON);
+    var a = document.createElement('a');
+    a.href = 'data:attachment/csv,' + encodeURIComponent(csv);
+    a.target = '_blank';
+    a.download = 'schedule.csv';
+    document.body.appendChild(a);
+    a.click();
+  })
 });
 
 function drawGanttChart(response) {
@@ -40,5 +52,7 @@ function drawGanttChart(response) {
     task.M3Stop = task.M3Start + task.M3Time;
     M3FreeAt = task.M3Stop;
   }
+  localStorage.removeItem('scheduledDataSet');
+  localStorage.setItem('scheduledDataSet', JSON.stringify(scheduledDataSet));
   displayGanttChart(scheduledDataSet) //d3chart.js
 }

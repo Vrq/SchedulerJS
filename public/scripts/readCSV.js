@@ -21,6 +21,7 @@ function handleFiles(files) {
       return myXhr;
     },
     success: function(response) {
+      localStorage.removeItem('dataSet');
       localStorage.setItem('dataSet', JSON.stringify(response));
       $("#exampleDataSetButton").css('background-color', '#534343');
       $("#exampleDataSetButton").text("Use example dataset");
