@@ -31,3 +31,6 @@
   padding-top: 0.5%;
   padding-bottom: 2%;
 }
+.littleMenuButton:hover {
+  background-color: #0d47a1;
+}
