@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-var _ = require('lodash'); //using cloneDeep in order to assign values not references
+const _ = require('lodash'); //using cloneDeep in order to assign values not references
 
 exports.JohnsonAlgorithm = function(fileName, res) {
   var filePath = path.join(__dirname, "..", "uploaded_files", fileName + ".json")
