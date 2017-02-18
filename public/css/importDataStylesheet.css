@@ -10,6 +10,7 @@
   border: none;
   margin: 2% auto;
   background-color: #004f00;
+  opacity: 0.8;
   color: #f1faee;
   font-size: 3vmin;
 }
@@ -17,17 +18,26 @@
   background-color: #2a9d8f;
 }
 #helpDiv {
+  opacity: 0.9;
   width: 32%;
   margin: 1% auto;
   background-color: #f7f7e7;
   border: 1px solid #534343;
 }
+#exampleDataSetButton {
+  height: 2%;
+  width: 40%;
+  margin: 1% auto;
+  font-size: 2vmin;
+  padding-top: 1%;
+  padding-bottom: 3%;
+}
 .importMenuButton {
   width: 32%;
-  height: 12%;
+  height: 9%;
   margin: 3% auto;
   transition-duration: 0.3s;
-  padding-top: 3%;
+  padding-top: 2%;
   padding-bottom: 0%;
 }
 progress {
