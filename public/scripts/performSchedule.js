@@ -10,7 +10,9 @@ $(document).ready(function() {
           console.log("We've got the answer")
           var hiddenDiv = $("#hiddenDiv");
           hiddenDiv.slideToggle("fast");
-          drawGanttChart(response);
+          localStorage.removeItem('scheduledDataSet');
+          localStorage.setItem('scheduledDataSet', JSON.stringify(response));
+          displayGanttChart(response) //d3chart.js
         }
       }
     });
@@ -22,6 +24,11 @@ $(document).ready(function() {
       type: 'GET',
       success: function(response) {
         console.log("CDS successful");
+        var hiddenDiv = $("#hiddenDiv");
+        hiddenDiv.slideToggle("fast");
+        localStorage.removeItem('scheduledDataSet');
+        localStorage.setItem('scheduledDataSet', JSON.stringify(response));
+        displayGanttChart(response) //d3chart.js
       }
     });
   });
@@ -38,31 +45,3 @@ $(document).ready(function() {
     a.click();
   })
 });
-
-function drawGanttChart(response) {
-  var dataSet = JSON.parse(localStorage.getItem('dataSet'));
-  var scheduledDataSet = [];
-  for(resRow of response) { //loop through sorted task set and display each task
-    var row = dataSet[resRow.TaskNumber];
-    scheduledDataSet.push(row);
-  }
-  var M1FreeAt = 0
-  var M2FreeAt = 0
-  var M3FreeAt = 0;
-  for(task of scheduledDataSet) {
-    task.M1Start = M1FreeAt;
-    task.M1Stop = task.M1Start + task.M1Time;
-    M1FreeAt = task.M1Stop;
-
-    task.M2Start = M2FreeAt > task.M1Stop ? M2FreeAt : task.M1Stop;
-    task.M2Stop = task.M2Start + task.M2Time;
-    M2FreeAt = task.M2Stop;
-
-    task.M3Start = M3FreeAt > task.M2Stop ? M3FreeAt : task.M2Stop;
-    task.M3Stop = task.M3Start + task.M3Time;
-    M3FreeAt = task.M3Stop;
-  }
-  localStorage.removeItem('scheduledDataSet');
-  localStorage.setItem('scheduledDataSet', JSON.stringify(scheduledDataSet));
-  displayGanttChart(scheduledDataSet) //d3chart.js
-}
