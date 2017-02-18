@@ -33,23 +33,38 @@ exports.JohnsonAlgorithm = function(fileName, res) {
         task = file[taskNumber];
         newTasksArray.push({"Task": task.Task, "M1pTime": task.M1Time + task.M2Time, "M2pTime": task.M2Time + task.M3Time, "TaskNumber": taskNumber});
       }
-      var m1TimeLowerArray = [];
-      var m2TimeLowerOrEqualArray = [];
-      for(task of newTasksArray) { //test case: are those arrays filled correctly
-        if(task.M1pTime < task.M2pTime) {
-          m1TimeLowerArray.push(task);
-        } else {
-          m2TimeLowerOrEqualArray.push(task);
-        }
-      }
-      m1TimeLowerArray.sort( function(task1, task2) {
-        return task1.M1pTime - task2.M1pTime;
-      });
-      m2TimeLowerOrEqualArray.sort( function(task1, task2) {
-        return task2.M2pTime - task1.M2pTime;
-      });
       res.setHeader('Content-Type', 'application/json');
-      res.send(m1TimeLowerArray.concat(m2TimeLowerOrEqualArray));
+      res.send(Johnson2Machines(newTasksArray));
     }
   })
+}
+
+exports.CDSAlgorithm = function(fileName, res) {
+  var filePath = path.join(__dirname, "..", "uploaded_files", fileName + ".json")
+  fs.readFile(filePath, function(err, data) {
+    if(err) {
+      return console.log(err);
+    }
+    var file = JSON.parse(data);
+
+  });
+}
+
+var Johnson2Machines = function(taskArray) {
+  var m1TimeLowerArray = [];
+  var m2TimeLowerOrEqualArray = [];
+  for(task of taskArray) { //test case: are those arrays filled correctly
+    if(task.M1pTime < task.M2pTime) {
+      m1TimeLowerArray.push(task);
+    } else {
+      m2TimeLowerOrEqualArray.push(task);
+    }
+  }
+  m1TimeLowerArray.sort( function(task1, task2) {
+    return task1.M1pTime - task2.M1pTime;
+  });
+  m2TimeLowerOrEqualArray.sort( function(task1, task2) {
+    return task2.M2pTime - task1.M2pTime;
+  });
+  return m1TimeLowerArray.concat(m2TimeLowerOrEqualArray);
 }

@@ -32,9 +32,12 @@ app.get('/example_dataset', function(req, res) {
   res.sendFile(path.join(__dirname, "sample", lastUploadedFileName + ".json"));
 });
 
-//TODO: Add description how the uploaded file should look like (columns, values)
 app.get('/get_schedule/johnson', function(req, res) {
   taskScheduler.JohnsonAlgorithm(lastUploadedFileName, res);
+});
+
+app.get('/get_schedule/cds', function(req, res) {
+  taskScheduler.CDSAlgorithm(lastUploadedFileName, res);
 });
 
 //parse uploaded file to json and save on server

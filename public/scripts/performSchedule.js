@@ -16,6 +16,16 @@ $(document).ready(function() {
     });
   });
 
+  $("#CDSButton").click(function() {
+    $.ajax({
+      url: '/get_schedule/cds',
+      type: 'GET',
+      success: function(response) {
+        console.log("CDS successful");
+      }
+    });
+  });
+
   $("#exportScheduleButton").click(function() {
     var dataSet = JSON.parse(localStorage.getItem('scheduledDataSet'));
     var dataSetJSON = Object.values(dataSet)
