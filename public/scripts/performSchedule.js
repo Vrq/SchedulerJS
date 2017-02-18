@@ -7,12 +7,8 @@ $(document).ready(function() {
         if(typeof response == "undefined" || response == "") {
           $("#JohnsonButton").hide().fadeIn(200).text("Cannot use for this dataset");
         } else {
-          console.log("We've got the answer")
-          var hiddenDiv = $("#hiddenDiv");
-          hiddenDiv.slideToggle("fast");
-          localStorage.removeItem('scheduledDataSet');
-          localStorage.setItem('scheduledDataSet', JSON.stringify(response));
-          displayGanttChart(response) //d3chart.js
+          var algorithmNameDiv = d3.select("#algorithmName").select("p").text("Johnson algorithm");
+          showScheduleFrom(response);
         }
       }
     });
@@ -23,12 +19,8 @@ $(document).ready(function() {
       url: '/get_schedule/cds',
       type: 'GET',
       success: function(response) {
-        console.log("CDS successful");
-        var hiddenDiv = $("#hiddenDiv");
-        hiddenDiv.slideToggle("fast");
-        localStorage.removeItem('scheduledDataSet');
-        localStorage.setItem('scheduledDataSet', JSON.stringify(response));
-        displayGanttChart(response) //d3chart.js
+        var algorithmNameDiv = d3.select("#algorithmName").select("p").text("Campbell-Dudek-Smith algorithm");
+        showScheduleFrom(response);
       }
     });
   });
@@ -45,3 +37,12 @@ $(document).ready(function() {
     a.click();
   })
 });
+
+function showScheduleFrom(dataSet) {
+  console.log("Algorithm run successful");
+  var hiddenDiv = $("#hiddenDiv");
+  hiddenDiv.fadeIn("fast");
+  localStorage.removeItem('scheduledDataSet');
+  localStorage.setItem('scheduledDataSet', JSON.stringify(dataSet));
+  displayGanttChart(dataSet) //d3chart.js
+}
