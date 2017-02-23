@@ -13,6 +13,22 @@ a {
   border: 2px solid #534343;
   background-color: #dddddd;
 }
+#importDataDiv {
+  display: none;
+  margin: 1% auto;
+  background-color: blue;
+  height: 30px;
+}
+#getScheduleDiv {
+  display: none;
+  margin: 1% auto;
+  background-color: blue;
+}
+#shareFeedbackDiv {
+  display: none;
+  margin: 1% auto;
+  background-color: blue;
+}
 #hiddenDiv {
   display: none;
   margin: 1% auto;
