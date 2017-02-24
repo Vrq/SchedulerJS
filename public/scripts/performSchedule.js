@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  const JohnsonButton = $("#JohnsonButton");
+  const CDSButton = $("#CDSButton");
   $("#JohnsonButton").click(function() {
     $.ajax({
       url: '/get_schedule/johnson',
@@ -8,6 +10,8 @@ $(document).ready(function() {
           $("#JohnsonButton").hide().fadeIn(200).text("Cannot use for this dataset");
         } else {
           var algorithmNameDiv = d3.select("#algorithmName").select("p").text("Johnson algorithm");
+          JohnsonButton.css('background-color', '#0d47a1');
+          CDSButton.css('background-color', '#473939');
           showScheduleFrom(response);
         }
       }
@@ -20,6 +24,8 @@ $(document).ready(function() {
       type: 'GET',
       success: function(response) {
         var algorithmNameDiv = d3.select("#algorithmName").select("p").text("Campbell-Dudek-Smith algorithm");
+        JohnsonButton.css('background-color', '#473939');
+        CDSButton.css('background-color', '#0d47a1');
         showScheduleFrom(response);
       }
     });
@@ -40,8 +46,8 @@ $(document).ready(function() {
 
 function showScheduleFrom(dataSet) {
   console.log("Algorithm run successful");
-  var hiddenDiv = $("#hiddenDiv");
-  hiddenDiv.fadeIn("fast");
+  var hiddenScheduleDiv = $("#hiddenScheduleDiv");
+  hiddenScheduleDiv.fadeIn("fast");
   localStorage.removeItem('scheduledDataSet');
   localStorage.setItem('scheduledDataSet', JSON.stringify(dataSet));
   displayGanttChart(dataSet) //d3chart.js

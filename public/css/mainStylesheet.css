@@ -16,18 +16,14 @@ a {
 #importDataDiv {
   display: none;
   margin: 1% auto;
-  background-color: blue;
-  height: 30px;
 }
 #getScheduleDiv {
   display: none;
   margin: 1% auto;
-  background-color: blue;
 }
 #shareFeedbackDiv {
   display: none;
   margin: 1% auto;
-  background-color: blue;
 }
 #hiddenDiv {
   display: none;
@@ -43,13 +39,13 @@ a {
   color: #534343;
 }
 .menuButtonDiv {
-  background-color: #534343;
+  background-color: #473939;
   white-space: pre-line;
   font-size: 4vmin;
   color: #f1faee;
 }
 .menuButtonDiv:hover {
-  background-color: #0d47a1;
+  background-color: #715b5b;
 }
 .bigButton {
   width: 32%;

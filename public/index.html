@@ -2,26 +2,66 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/mainStylesheet.css">
+        <link rel="stylesheet" type="text/css" href="css/getScheduleStylesheet.css">
+        <link rel="stylesheet" type="text/css" href="css/importDataStylesheet.css">
     </head>
     <body>
       <div class="theGreatDiv">
-        <div class="buttonDivContainer">
-          <a href="importData.html">
-            <div class="menuButtonDiv bigButton">Import data</div>
-          </a>
-          <a href="getSchedule.html">
-            <div class="menuButtonDiv bigButton">Get Schedule</div>
-          </a>
-          <div class="menuButtonDiv bigButton">Placeholder</div>
+        <div class="menuButtonDiv smallButton" id="menuImportButton">Import Data</div>
+        <div class="menuButtonDiv smallButton" id="menuScheduleButton">Get Schedule</div>
+        <div class="menuButtonDiv smallButton" id="menuFeedbackButton">Share Feedback</div>
+        <div id="importDataDiv">
+          <div class="importPageContainer">
+            <div class="uploadContainer">
+              <h1>Select CSV file to import data</h1>
+              <div id="helpDiv">
+                <div>The first row should have the following format: </br> (label text must be the same)</div>
+                <table class="dataSetTable">
+                  <tr>
+                    <td>Task</td><td>M1Time</td><td>M2Time</td><td>M3Time</td>
+                  </tr>
+                </table>
+                <div class="menuButtonDiv" id="exampleDataSetButton">Use example dataset</div>
+              </div>
+              <input type="file" class="filestyle" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv" name="Choosefile">
+              <input type="button" value="Click to select file" id="chooseFileButton"/>
+            </div>
+            <progress id="progress" value="0"></progress>
+            <div class="menuButtonDiv importMenuButton" id="showDatasetButton">Show Data</div>
+            <div id="hiddenDiv"></div>
+          </div>
         </div>
-        <div class="menuButtonDiv smallButton">Placeholder</div>
-        <div class="menuButtonDiv smallButton" id="showDatasetButton">Current Dataset</div>
-        <a href="mailto:januszveiro@gmail.com?Subject=ScheduleJS-feedback">
-          <div class="menuButtonDiv smallButton">Share Feedback</div>
-        </a>
-        <div id="hiddenDiv"></div>
+
+        <div id="getScheduleDiv">
+          <div class="buttonDivContainer">
+            <div class="menuButtonDiv smallButton" id="JohnsonButton">Johnson's Algorithm</div>
+            <div class="menuButtonDiv smallButton" id="CDSButton">CDS Algorithm</div>
+            <div class="menuButtonDiv smallButton">3rd Algorithm</div>
+          </div>
+          <div id="hiddenScheduleDiv">
+            <div id="algorithmName">
+              <p></p>
+            </div>
+            <div id="totalTime">
+              <p></p>
+            </div>
+            <div class="littleMenuButton" id="exportScheduleButton">Export schedule to CSV</div>
+          </div>
+          <div id="svgDiv" >
+            <svg id="scheduleVisualisation" width="800" height="400"></svg>
+          </div>
+        </div>
+
+
+        <div id="shareFeedbackDiv">feedback</div>
       </div>
       <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+      <script src="http://d3js.org/d3.v3.min.js"></script>
+      <script type="text/javascript" src="scripts/papaparse.js" charset="utf-8"></script>
+      <script type="text/javascript" src="scripts/performSchedule.js" charset="utf-8"></script>
+      <script type="text/javascript" src="scripts/d3chart.js" charset="utf-8"></script>
       <script type="text/javascript" src="scripts/readCSV.js" charset="utf-8"></script>
+      <script type="text/javascript" src="scripts/menuNav.js" charset="utf-8"></script>
     </body>
 </html>
