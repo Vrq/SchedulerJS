@@ -14,15 +14,6 @@
           <div class="importPageContainer">
             <div class="uploadContainer">
               <h1>Select CSV file to import data</h1>
-              <div id="helpDiv">
-                <div>The first row should have the following format: </br> (label text must be the same)</div>
-                <table class="dataSetTable">
-                  <tr>
-                    <td>Task</td><td>M1Time</td><td>M2Time</td><td>M3Time</td>
-                  </tr>
-                </table>
-                <div class="menuButtonDiv" id="exampleDataSetButton">Use example dataset</div>
-              </div>
               <input type="file" class="filestyle" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv" name="Choosefile">
               <input type="button" value="Click to select file" id="chooseFileButton"/>
             </div>
@@ -34,9 +25,9 @@
 
         <div id="getScheduleDiv">
           <div class="buttonDivContainer">
-            <div class="menuButtonDiv smallButton" id="JohnsonButton">Johnson's Algorithm</div>
-            <div class="menuButtonDiv smallButton" id="CDSButton">CDS Algorithm</div>
-            <div class="menuButtonDiv smallButton">3rd Algorithm</div>
+            <div class="menuButtonDiv algButton" id="JohnsonButton">Johnson's Algorithm</div>
+            <div class="menuButtonDiv algButton" id="CDSButton">CDS Algorithm</div>
+            <div class="menuButtonDiv algButton">3rd Algorithm</div>
           </div>
           <div id="hiddenScheduleDiv">
             <div id="algorithmName">

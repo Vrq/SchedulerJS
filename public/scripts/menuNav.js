@@ -10,9 +10,9 @@ $(document).ready(function() {
     menuImportButton.css('background-color', '#0d47a1');
     menuScheduleButton.css('background-color', '#473939');
     menuFeedbackButton.css('background-color', '#473939');
-    importDataDiv.show("fast");
-    getScheduleDiv.hide("fast");
-    shareFeedbackDiv.hide("fast");
+    importDataDiv.slideDown(300);
+    getScheduleDiv.hide();
+    shareFeedbackDiv.hide();
 //    importDataDiv.empty();
   });
 
@@ -20,9 +20,9 @@ $(document).ready(function() {
     menuImportButton.css('background-color', '#473939');
     menuScheduleButton.css('background-color', '#0d47a1');
     menuFeedbackButton.css('background-color', '#473939');
-    importDataDiv.hide("fast");
-    getScheduleDiv.show("fast");
-    shareFeedbackDiv.hide("fast");
+    importDataDiv.hide();
+    getScheduleDiv.slideDown(300);
+    shareFeedbackDiv.hide();
 //    importDataDiv.empty();
   });
 
@@ -30,9 +30,9 @@ $(document).ready(function() {
     menuImportButton.css('background-color', '#473939');
     menuScheduleButton.css('background-color', '#473939');
     menuFeedbackButton.css('background-color', '#0d47a1');
-    importDataDiv.hide("fast");
-    getScheduleDiv.hide("fast");
-    shareFeedbackDiv.show("fast");
+    importDataDiv.hide();
+    getScheduleDiv.hide();
+    shareFeedbackDiv.slideDown(300);
 //    importDataDiv.empty();
   });
 
