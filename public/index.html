@@ -1,58 +1,74 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="css/mainStylesheet.css">
-        <link rel="stylesheet" type="text/css" href="css/getScheduleStylesheet.css">
-        <link rel="stylesheet" type="text/css" href="css/importDataStylesheet.css">
-    </head>
-    <body>
-      <div class="theGreatDiv">
-        <div class="menuButtonDiv smallButton" id="menuImportButton">Import Data</div>
-        <div class="menuButtonDiv smallButton" id="menuScheduleButton">Get Schedule</div>
-        <div class="menuButtonDiv smallButton" id="menuFeedbackButton">Share Feedback</div>
-        <div id="importDataDiv">
-          <div class="importPageContainer">
-            <div class="uploadContainer">
-              <h1>Select CSV file to import data</h1>
-              <input type="file" class="filestyle" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv" name="Choosefile">
-              <input type="button" value="Click to select file" id="chooseFileButton"/>
-            </div>
-            <progress id="progress" value="0"></progress>
-            <div class="menuButtonDiv importMenuButton" id="showDatasetButton">Show Data</div>
-            <div id="hiddenDiv"></div>
-          </div>
-        </div>
-
-        <div id="getScheduleDiv">
-          <div class="buttonDivContainer">
-            <div class="menuButtonDiv algButton" id="JohnsonButton">Johnson's Algorithm</div>
-            <div class="menuButtonDiv algButton" id="CDSButton">CDS Algorithm</div>
-            <div class="menuButtonDiv algButton">3rd Algorithm</div>
-          </div>
-          <div id="hiddenScheduleDiv">
-            <div id="algorithmName">
-              <p></p>
-            </div>
-            <div id="totalTime">
-              <p></p>
-            </div>
-            <div class="littleMenuButton" id="exportScheduleButton">Export schedule to CSV</div>
-          </div>
-          <div id="svgDiv" >
-            <svg id="scheduleVisualisation" width="800" height="400"></svg>
-          </div>
-        </div>
-
-
-        <div id="shareFeedbackDiv">feedback</div>
-      </div>
-      <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
-      <script src="http://d3js.org/d3.v3.min.js"></script>
-      <script type="text/javascript" src="scripts/papaparse.js" charset="utf-8"></script>
-      <script type="text/javascript" src="scripts/performSchedule.js" charset="utf-8"></script>
-      <script type="text/javascript" src="scripts/d3chart.js" charset="utf-8"></script>
-      <script type="text/javascript" src="scripts/readCSV.js" charset="utf-8"></script>
-      <script type="text/javascript" src="scripts/menuNav.js" charset="utf-8"></script>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SchedulerJS - fast and reliable enterprise project scheduling</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="css/bootstrapLayout.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+    	<div class="container">
+    		<div class="navbar-header">
+    			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    				<span class="sr-only">Toggle navigation</span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    			</button>
+    			<a class="navbar-brand" href="#">SchedulerJS</a>
+    		</div>
+    		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    			<ul class="nav navbar-nav navbar-right">
+    				<li><a href="#">About</a></li>
+    				<li class="dropdown">
+    					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Algorithms<span class="caret"></span></a>
+    					<ul class="dropdown-menu">
+                <li><a href="#">Johnson's Algorithm</a></li>
+                <li><a href="#">CDS Algorithm</a></li>
+                <li><a href="#">3rd Algorithm</a></li>
+    					</ul>
+    				</li>
+    				<li><a href="app.html">App</a></li>
+    			</ul>
+    		</div>
+    	</div>
+    </nav>
+    <div class="jumbotron">
+    	<div class="container">
+    		<h1>Release approaching to quickly?</h1>
+        <p>Let us take care of your project schedule and enjoy meeting all deadlines.</p>
+    		<br>
+    		<p><a class="btn btn-primary btn-lg" href="app.html" role="button">Use SchedulerJS »</a> <a class="btn btn-primary btn-lg" href="#" role="button">How it works?</a></p>
+    	</div>
+    </div>
+    <div class="container">
+      <section class="introduction">
+      	<div class="row">
+      		<div class="col-md-4">
+      			<span class="glyphicon glyphicon-upload glyphicon-large" aria-hidden="true"></span>
+      			<h3>Upload tasks</h3>
+      			<p>Upload your project tasks using CSV format or one of our integrations with project management apps</p>
+      		</div>
+      		<div class="col-md-4">
+      			<span class="glyphicon glyphicon-indent-right glyphicon-large" aria-hidden="true"></span>
+      			<h3>Optimise schedule</h3>
+      			<p>Use our simple 1-click scheduler to get the best task schedule for your project.</p>
+      		</div>
+      		<div class="col-md-4">
+      			<span class="glyphicon glyphicon-floppy-saved glyphicon-large" aria-hidden="true"></span>
+      			<h3>Save results</h3>
+      			<p>Export your results and save them in CSV format which can be opened by any editor.</p>
+      		</div>
+      	</div>
+      </section>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
 </html>

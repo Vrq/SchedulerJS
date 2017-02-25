@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>SchedulerJS App</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css/bootstrapLayout.css" >
+        <link rel="stylesheet" type="text/css" href="css/mainStylesheet.css">
+        <link rel="stylesheet" type="text/css" href="css/getScheduleStylesheet.css">
+        <link rel="stylesheet" type="text/css" href="css/importDataStylesheet.css">
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+      <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">SchedulerJS</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">About</a></li>
+              <li><a href="app.html">App</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="theGreatDiv">
+        <div class="menuButtonDiv smallButton" id="menuImportButton"><span class="buttonText">Import Data</span></div>
+        <span class="glyphicon glyphicon-play glyphicon-large" aria-hidden="true"></span>
+        <div class="menuButtonDiv smallButton" id="menuScheduleButton">Get Schedule</div>
+        <div class="noneDisplayDiv" id="importDataDiv">
+          <div class="importPageContainer">
+            <div class="uploadContainer">
+              <h1>Select CSV file to import data</h1>
+              <progress id="progress" value="0"></progress>
+
+              <input type="file" class="filestyle" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv" name="Choosefile">
+              <input type="button" value="Click to select file" class="menuButtonDiv littleMenuButton" id="chooseFileButton"/>
+            </div>
+            <div class="menuButtonDiv littleMenuButton" id="showDatasetButton">Show Data</div>
+            <div class="noneDisplayDiv" id="hiddenDiv"></div>
+          </div>
+        </div>
+        <div class="noneDisplayDiv" id="getScheduleDiv">
+          <div class="buttonDivContainer">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="menuButtonDiv algButton" id="JohnsonButton">Johnson's Algorithm</div>
+              </div>
+              <div class="col-md-4">
+                <div class="menuButtonDiv algButton" id="CDSButton">CDS Algorithm</div>
+              </div>
+              <div class="col-md-4">
+                <div class="menuButtonDiv algButton">3rd Algorithm</div>
+              </div>
+            </div>
+          </div>
+          <div id="hiddenScheduleDiv">
+            <div id="algorithmName">
+              <p></p>
+            </div>
+            <div id="totalTime">
+              <p></p>
+            </div>
+            <div class="menuButtonDiv littleMenuButton" id="exportScheduleButton">Export schedule to CSV</div>
+          </div>
+          <div id="svgDiv" >
+            <svg id="scheduleVisualisation" width="800" height="400"></svg>
+          </div>
+        </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script src="http://d3js.org/d3.v3.min.js"></script>
+      <script type="text/javascript" src="scripts/papaparse.js" charset="utf-8"></script>
+      <script type="text/javascript" src="scripts/performSchedule.js" charset="utf-8"></script>
+      <script type="text/javascript" src="scripts/d3chart.js" charset="utf-8"></script>
+      <script type="text/javascript" src="scripts/readCSV.js" charset="utf-8"></script>
+      <script type="text/javascript" src="scripts/menuNav.js" charset="utf-8"></script>
+    </body>
+</html>

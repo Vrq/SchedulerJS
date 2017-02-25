@@ -1,0 +1,79 @@
+.navbar {
+	margin-bottom: 0;
+}
+body {
+	background: #473939;
+	color: #f7f7f7;
+	font-family: 'Lato', sans-serif;
+}
+h1,
+h2 {
+	font-weight: bold;
+}
+p {
+	font-size: 18px;
+	color: #cdcdcd;
+}
+.jumbotron {
+	background: #f1f1d1;
+	color: #634f4f;
+	text-align: center;
+}
+.jumbotron p {
+	color: #473939;
+	font-size: 26px;
+}
+.btn-primary {
+	color: #473939;
+	background-color: transparent;
+	border-color: #473939;
+	margin-bottom: 5px;
+}
+.btn-primary:hover {
+	color: #f1f1d1;
+	background-color: #473939;
+	border-color: #473939;
+}
+.navbar-default {
+	background: #473939;
+	border: 0;
+}
+.navbar-default .navbar-nav li a {
+	color: #f7f7f7;
+	font-size: 20px;
+}
+.navbar-default .navbar-nav li a:hover {
+	background: #f1f1d1;
+  color: #634f4f;
+}
+.dropdown-menu {
+	background: #2E2F31;
+	border-radius: 0;
+	border: 0;
+}
+.dropdown-menu li a {
+	padding: 10px;
+}
+.navbar-default .navbar-nav .dropdown-menu li a:hover {
+	background: #2C463C;
+}
+.introduction {
+	text-align: center;
+}
+.introduction p {
+	margin-bottom: 30px;
+	font-family: sans-serif;
+}
+.glyphicon-large {
+	font-size: 100px;
+}
+.glyphicon-play {
+  margin: 1%;
+}
+.navbar-default .navbar-brand {
+  color: #f1f1f1;
+  font-size: 20px;
+}
+.navbar-default .navbar-brand:hover {
+  color: white;
+}
