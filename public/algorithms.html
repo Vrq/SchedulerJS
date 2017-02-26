@@ -20,11 +20,11 @@
     				<span class="icon-bar"></span>
     				<span class="icon-bar"></span>
     			</button>
-    			<a class="navbar-brand" href="#">SchedulerJS</a>
+    			<a class="navbar-brand" href="index.html">SchedulerJS</a>
     		</div>
     		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     			<ul class="nav navbar-nav navbar-right">
-    				<li><a href="algorithms.html">Algorithms</a></li>
+    				<li><a href="#">Algorithms</a></li>
     				<li><a href="app.html">App</a></li>
     			</ul>
     		</div>
@@ -32,31 +32,46 @@
     </nav>
     <div class="jumbotron">
     	<div class="container">
-    		<h1>Release approaching to quickly?</h1>
-        <p>Let us take care of your project schedule and enjoy meeting all deadlines.</p>
+        <p>SchedulerJS uses task scheduling algorithms already proven in industrial cases.</p>
     		<br>
-    		<p><a class="btn btn-primary btn-lg" href="app.html" role="button">Use SchedulerJS »</a> <a class="btn btn-primary btn-lg" href="#" role="button">How it works?</a></p>
     	</div>
+      <ul  class="nav nav-pills">
+  			<li class="active">
+          <a  href="#1a" data-toggle="tab">Overview</a>
+  			</li>
+  			<li><a href="#2a" data-toggle="tab">Johnson's algorithm</a>
+  			</li>
+  			<li><a href="#3a" data-toggle="tab">CDS algorithm</a>
+  			</li>
+    		<li><a href="#4a" data-toggle="tab">3rd algorithm</a>
+  			</li>
+    </ul>
     </div>
+    <div id="exTab1" class="container">
+			<div class="tab-content clearfix">
+			  <div class="tab-pane active" id="1a">
+          <h3>Content's background color is the same for the tab</h3>
+				</div>
+				<div class="tab-pane" id="2a">
+          <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</h3>
+				</div>
+        <div class="tab-pane" id="3a">
+          <h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
+				</div>
+          <div class="tab-pane" id="4a">
+          <h3>We use css to change the background color of the content to be equal to the tab</h3>
+				</div>
+			</div>
+  </div>
     <div class="container">
       <section class="introduction">
       	<div class="row">
-      		<div class="col-md-4">
+      		<div class="col-md-12">
       			<span class="glyphicon glyphicon-upload glyphicon-large" aria-hidden="true"></span>
       			<h3>Upload tasks</h3>
       			<p>Upload your project tasks using CSV format or one of our integrations with project management apps</p>
       		</div>
-      		<div class="col-md-4">
-      			<span class="glyphicon glyphicon-indent-right glyphicon-large" aria-hidden="true"></span>
-      			<h3>Optimise schedule</h3>
-      			<p>Use our simple 1-click scheduler to get the best task schedule for your project.</p>
-      		</div>
-      		<div class="col-md-4">
-      			<span class="glyphicon glyphicon-floppy-saved glyphicon-large" aria-hidden="true"></span>
-      			<h3>Save results</h3>
-      			<p>Export your results and save them in CSV format which can be opened by any editor.</p>
-      		</div>
-      	</div>
+        </div>
       </section>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
