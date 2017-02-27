@@ -77,11 +77,6 @@ p {
 .navbar-default .navbar-brand:hover {
   color: white;
 }
-#exTab1 .tab-content {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
-}
 .nav-tabs > li, .nav-pills > li {
   float:none;
   display:inline-block;
@@ -92,6 +87,7 @@ p {
   color: #473939;
   border: 1px solid;
   border-color: #473939;
+	width: 200px;
 }
 .nav-pills > li > a:hover {
   color: #f1f1d1;
@@ -101,7 +97,15 @@ p {
   color: #f1f1d1;
   background-color: #473939;
 }
-
 .nav-tabs, .nav-pills {
   text-align:center;
+}
+.tab-pane > ul > li {
+	font-size: 20px;
+}
+.tab-pane > ol > li {
+	font-size: 20px;
+}
+#tabDiv {
+	text-align: justify;
 }

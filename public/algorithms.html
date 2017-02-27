@@ -32,7 +32,7 @@
     </nav>
     <div class="jumbotron">
     	<div class="container">
-        <p>SchedulerJS uses task scheduling algorithms already proven in industrial cases.</p>
+        <h2>SchedulerJS uses task scheduling algorithms already proven in industrial cases.</h2>
     		<br>
     	</div>
       <ul  class="nav nav-pills">
@@ -47,33 +47,42 @@
   			</li>
     </ul>
     </div>
-    <div id="exTab1" class="container">
+    <div id="tabDiv" class="container">
 			<div class="tab-content clearfix">
 			  <div class="tab-pane active" id="1a">
-          <h3>Content's background color is the same for the tab</h3>
+          <h1>Overview</h1>
+          <h3>Scheduling is the process of optimising work and workloads in a production process.</h3>
+          <h3>The main goal of it is to cut costs by optimally allocating available resources and reducing total production time.</h3>
+          <h3>Task scheduling has been in use in different industries, such as:</h3>
+          <ul>
+            <li>Aerospace</li>
+            <li>Automotive</li>
+            <li>Chemical Manufacturing</li>
+            <li>Food Production</li>
+            <li>Pharmaceutical Manufacturing</li>
+          </ul>
 				</div>
 				<div class="tab-pane" id="2a">
-          <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</h3>
+          <h1>Johnson's algorithm</h1>
+          <h3>The algorithm was developed in 1954 by S.M. Johnson as a solution to the 2 machine Flow Shop problem</h3>
+          <h3>The algorithm consists of the following steps:</h3>
+          <ol>
+            <li>Divide the task set into 2 separate sets. Set A - for tasks where the time on 1st machine is less than the time on 2nd machine and set B - where the time on 1st machine is greater or equal than the time on 2nd machine</li>
+            <li>Sort the tasks in set A by non-decreasing time on 1st machine and the tasks in set B by non-increasing time on 2nd machine</li>
+            <li>Join the sorted sets by taking first set A and then set B</li>
+          </ol>
+
 				</div>
         <div class="tab-pane" id="3a">
-          <h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
+          <h1>Campbell-Dudek-Smith algorithm</h1>
+          <h3>Campbell-Dudek-Smith</h3>
 				</div>
-          <div class="tab-pane" id="4a">
-          <h3>We use css to change the background color of the content to be equal to the tab</h3>
+        <div class="tab-pane" id="4a">
+          <h1>3rd algorithm</h1>
+          <h3>TBD</h3>
 				</div>
 			</div>
   </div>
-    <div class="container">
-      <section class="introduction">
-      	<div class="row">
-      		<div class="col-md-12">
-      			<span class="glyphicon glyphicon-upload glyphicon-large" aria-hidden="true"></span>
-      			<h3>Upload tasks</h3>
-      			<p>Upload your project tasks using CSV format or one of our integrations with project management apps</p>
-      		</div>
-        </div>
-      </section>
-    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
