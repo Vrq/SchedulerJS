@@ -51,9 +51,33 @@
 			<div class="tab-content clearfix">
 			  <div class="tab-pane active" id="1a">
           <h1>Overview</h1>
-          <h3>Scheduling is the process of optimising work and workloads in a production process.</h3>
-          <h3>The main goal of it is to cut costs by optimally allocating available resources and reducing total production time.</h3>
-          <h3>Task scheduling has been in use in different industries, such as:</h3>
+          <h4>Scheduling is the process of optimising work and workloads in a production process.</h4>
+          <h4>The main goal of it is to cut costs by optimally allocating available resources and reducing total production time.</h4>
+          <h2>General definition:</h2>
+          <h4>Given a set of tasks J = {J1,...,Jn} which have to be executed on a set of machines M = {M1,...,Mm}
+            it is to find a schedule, that is a mapping of tasks to the machines with specified start and stop times, which,
+            by given constraints, optimises a choosen goal function.</h4>
+          </br>
+          <h4>The most used parameters for goal function calculation are the following (given task with index - j):</h4>
+          <ul>
+            <li>pij - processing time on machine with index - i</li>
+            <li>rj - task release date</li>
+            <li>dj - due date</li>
+            <li>wj - weight</li>
+          </ul>
+          </br>
+          <h4>Given different task processing ways, there can be defined different systems:</h4>
+          <ul>
+            <li><b>Flow Shop</b> - each task has to be processed by each machine given some order. Each machine can execute only 1 task
+              and each task can be executed by only 1 machine at a time. Task execution cannot be interrupted</li>
+            <li><b>Permutation Flow Shop</b> - a Flow Shop for which the machine execution order has to be the same for each task</li>
+            <li><b>Job Shop</b> - the machine execution order can be different for each task</li>
+            <li><b>General Shop</b> - each task consists of only 1 operation and the machine execution order is defined by a graph structure</li>
+            <li><b>Parallel Shop</b> - each task consists of only 1 operation which is executed by one of many parallel machines</li>
+            <li><b>Open Shop</b> - the machine execution order for the tasks is not specified</li>
+          </ul>
+          <h2>Usage:</h2>
+          <h4>Task scheduling has been in use in different industries, such as:</h4>
           <ul>
             <li>Aerospace</li>
             <li>Automotive</li>
@@ -64,14 +88,38 @@
 				</div>
 				<div class="tab-pane" id="2a">
           <h1>Johnson's algorithm</h1>
-          <h3>The algorithm was developed in 1954 by S.M. Johnson as a solution to the 2 machine Flow Shop problem</h3>
-          <h3>The algorithm consists of the following steps:</h3>
+          <h4>The algorithm was developed in 1954 by S.M. Johnson as a solution to the 2 machine Flow Shop problem.
+            It provides a precise solution to the scheduling problem and has a Big-O time complexity of O(n log n)</h4>
+          <h2>Algorithm preconditions:</h2>
+          <ol>
+            <li>There is given a set of tasks J = {J1,...Jn} and set of machines M = {M1, M2}</li>
+            <li>Times on machines must be for each task defined and constant</li>
+            <li>Each task has to be executed on the M1 machine first before being executed on machine M2</li>
+            <li>The must be no job priorities</li>
+          </ol>
+          <h2>Algorithm steps:</h2>
           <ol>
             <li>Divide the task set into 2 separate sets. Set A - for tasks where the time on 1st machine is less than the time on 2nd machine and set B - where the time on 1st machine is greater or equal than the time on 2nd machine</li>
             <li>Sort the tasks in set A by non-decreasing time on 1st machine and the tasks in set B by non-increasing time on 2nd machine</li>
-            <li>Join the sorted sets by taking first set A and then set B</li>
+            <li>Join the sorted sets by taking first set A and then set B - the result is the final schedule</li>
           </ol>
-
+          <h2>Usage for 3 machines:</h2>
+          <h4>Johnson's algorithm can be used for 3-machines Flow Shop problems as well, given the following condition is met:</h4>
+          </br>
+          <h4>The 2nd machine is dominated by either 1st or 3rd machine, that means either of the following is true:</h4>
+          <ul>
+            <li>min(p1j)  >=  max(p2j)  for  j = {1,...,n}</li>
+            <li>min(p3j)  >=  max(p2j)  for  j = {1,...,n}</li>
+          </ul>
+          </br>
+          <h4>If the condition is met, the problem can be reduced to a 2-machines problem by introducting 2 helper
+            machines M1' and M2' for which the times are calculated using formulas:<h4>
+          <ul>
+            <li>p1j' = p1j + p2j</li>
+            <li>p2j' = p2j + p3j</li>
+          </ul>
+          </br>
+          <h4>After that the problem is solved by the original algorithm</h4>
 				</div>
         <div class="tab-pane" id="3a">
           <h1>Campbell-Dudek-Smith algorithm</h1>

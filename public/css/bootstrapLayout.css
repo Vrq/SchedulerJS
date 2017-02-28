@@ -101,11 +101,19 @@ p {
   text-align:center;
 }
 .tab-pane > ul > li {
-	font-size: 20px;
+	font-size: 18px;
+	margin-top: 10px;
 }
 .tab-pane > ol > li {
-	font-size: 20px;
+	font-size: 18px;
+  margin-bottom: 10px;
+}
+.tab-pane > h2 {
+	margin-top: 50px;
+	margin-bottom: 20px;
 }
 #tabDiv {
 	text-align: justify;
+  max-width: 800px;
+	margin-bottom: 50px;
 }
