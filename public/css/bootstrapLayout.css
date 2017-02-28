@@ -28,6 +28,7 @@ p {
 	background-color: transparent;
 	border-color: #473939;
 	margin-bottom: 5px;
+	font-size: 20px;
 }
 .btn-primary:hover {
 	color: #f1f1d1;
@@ -64,6 +65,22 @@ p {
 	margin-bottom: 30px;
 	font-family: sans-serif;
 }
+.introduction > ul > li {
+	font-size: 24px;
+	margin: 30px auto;
+	text-align:left;
+}
+.introduction > ul  {
+	font-size: 24px;
+	margin-left: 350px;
+	text-align:left;
+}
+.how-it-works {
+	color:  #473939;
+	background-color: #f1f1d1;
+	margin: 100px auto;
+  text-align: center;
+}
 .glyphicon-large {
 	font-size: 100px;
 }
@@ -87,7 +104,8 @@ p {
   color: #473939;
   border: 1px solid;
   border-color: #473939;
-	width: 200px;
+	width: 250px;
+	font-size: 20px;
 }
 .nav-pills > li > a:hover {
   color: #f1f1d1;
@@ -111,6 +129,12 @@ p {
 .tab-pane > h2 {
 	margin-top: 50px;
 	margin-bottom: 20px;
+}
+.container {
+	margin-bottom: 50px;
+}
+.row {
+	margin-bottom: 50px;
 }
 #tabDiv {
 	text-align: justify;

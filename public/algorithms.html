@@ -9,6 +9,9 @@
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="css/bootstrapLayout.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({CommonHTML: {scale: 150}});</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   </head>
   <body>
     <nav class="navbar navbar-default navbar-static-top">
@@ -99,7 +102,8 @@
           </ol>
           <h2>Algorithm steps:</h2>
           <ol>
-            <li>Divide the task set into 2 separate sets. Set A - for tasks where the time on 1st machine is less than the time on 2nd machine and set B - where the time on 1st machine is greater or equal than the time on 2nd machine</li>
+            <li>Divide the task set into 2 separate sets. Set A - for tasks where the time on 1st machine is less than the time on 2nd machine
+              and set B - where the time on 1st machine is greater or equal than the time on 2nd machine</li>
             <li>Sort the tasks in set A by non-decreasing time on 1st machine and the tasks in set B by non-increasing time on 2nd machine</li>
             <li>Join the sorted sets by taking first set A and then set B - the result is the final schedule</li>
           </ol>
@@ -123,7 +127,17 @@
 				</div>
         <div class="tab-pane" id="3a">
           <h1>Campbell-Dudek-Smith algorithm</h1>
-          <h3>Campbell-Dudek-Smith</h3>
+          <h4>The CDS algorithm was developed by Herbert G. Campbell, Richard A. Dudek and Milton L. Smith in 1970.
+          It is a heuristic algorithm that enables to get an approximate solution to a n-task m-machine Flow Shop problem.</h4>
+          <h4>In order to get a solution, the original problem is first split into subproblems and then solved using the Johnson algorithm.</h4>
+          <h2>Algorithm steps:</h2>
+          <ol>
+            <li>Create (m-1) 2-machine n-task subproblems. A subtask with index k = {1,...,m-1} is created as $$M_{1j}^{k} = \sum_{i=1}^{k}p_{ij}$$
+            and $$M_{2j}^{k} = \sum_{i=m+1-k}^{m}p_{ij}$$</li>
+            <li>Solve each subproblem using Johnson's 2-machine algorithm</li>
+            <li>Traverse through the subproblem solutions set and choose the one that best satisfies the goal function</li>
+          </ol>
+
 				</div>
         <div class="tab-pane" id="4a">
           <h1>3rd algorithm</h1>
