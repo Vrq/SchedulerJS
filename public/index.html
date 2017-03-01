@@ -36,7 +36,7 @@
         <p>Let us take care of your project schedule and enjoy meeting all deadlines.</p>
     		<br>
     		<p><a class="btn btn-primary btn-lg" href="app.html" role="button">Use SchedulerJS »</a>
-          <a class="btn btn-primary btn-lg" href="#header-how-it-works" role="button">How it works?</a></p>
+          <a class="btn btn-primary btn-lg" href="#how-it-works-section" role="button">How it works?</a></p>
     	</div>
     </div>
     <div class="container">
@@ -59,12 +59,16 @@
       		</div>
       	</div>
         <span class="glyphicon glyphicon-tasks glyphicon-large" aria-hidden="true"></span>
-        <h2>If you are a:</h2>
-        <ul>
-          <li>Project manager in an Enterprise</li>
-          <li>Tech lead in a Mid-Sized Company</li>
-          <li>CTO in a Growing Startup</li>
-        </ul>
+        <div class="row">
+          <div class="col-md-6 col-centered">
+            <h2>If you are a:</h2>
+            <ul>
+              <li>Project manager in an Enterprise</li>
+              <li>Tech lead in a Mid-Sized Company</li>
+              <li>CTO in a Growing Startup</li>
+            </ul>
+          </div>
+        </div>
       </br>
         <h2>Then SchedulerJS is probably the best project planning tool for you!</h2>
       </section>
@@ -72,11 +76,30 @@
       <section class="how-it-works">
         <div class="jumbotron">
           <div class="container">
-            <span class="glyphicon glyphicon-random glyphicon-large" aria-hidden="true"></span>
-            <h1 id="header-how-it-works">How it works?</h1>
-            <h2>What scheduler is doing</h2>
-            <h2>What kind of project structure you need to have</h2>
-            <h2>Whats the result<h2>
+            <span class="glyphicon glyphicon-random glyphicon-large" id="how-it-works-section" aria-hidden="true"></span>
+            <h1>How it works?</h1>
+            <h2 class="header-break">Prerequisites:</h2>
+            <div class="row">
+              <div class="col-md-8 col-centered-small">
+                <h3>SchedulerJS is best suitable for IT projects executed by team that include 3 types of roles:</h3>
+                <ul>
+                  <li>Product Manager - defining the scope and acceptance criteria for the tasks</li>
+                  <li>Software Developer - implementing described tasks</li>
+                  <li>Quality Assurance - testing and rating the quality of the work done</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8  col-centered-small">
+                <h3>Each task (single feature, bug fix, etc.) should have the following workflow:</h3>
+                <h3>Product Manager -> Software Developer -> Quality Assurance</h3>
+                <h3>For each task you have to estimate the times how long does it take to be executed at each stage</h3>
+                <h2 class="header-break">What scheduler is doing?</h2>
+                <h3>SchedulerJS uses mathematically proven algorithms to compute the order in which the tasks should be executed
+                  in order to complete the project in the shortest time</h3>
+            </div>
+          </div>
+            <h2>How to use it step by step?<h2>
             <ol>
               <li>Prepare your task list</li>
               <li>Upload your task list to the server</li>
