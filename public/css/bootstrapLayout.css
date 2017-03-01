@@ -78,7 +78,7 @@ p {
 .how-it-works {
 	color:  #473939;
 	background-color: #f1f1d1;
-	margin: 100px auto;
+	margin: 150px auto;
   text-align: center;
 }
 .header-break {
@@ -153,9 +153,16 @@ p {
 .col-centered > ul > li {
 	margin: 30px auto;
 }
-.col-centered-small {
-	float: none;
+.col-centered-small > ul {
+  list-style-position: inside;
 	margin: 0 auto;
-	text-align: left;
+	text-align: center;
 	font-size: 20px;
+}
+.col-centered-small {
+  margin: 0 auto;
+  float: none;
+}
+#bottom-cta {
+  margin-top: 100px;
 }

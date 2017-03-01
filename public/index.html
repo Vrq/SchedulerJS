@@ -80,7 +80,7 @@
             <h1>How it works?</h1>
             <h2 class="header-break">Prerequisites:</h2>
             <div class="row">
-              <div class="col-md-8 col-centered-small">
+              <div class="col-md-10 col-centered-small">
                 <h3>SchedulerJS is best suitable for IT projects executed by team that include 3 types of roles:</h3>
                 <ul>
                   <li>Product Manager - defining the scope and acceptance criteria for the tasks</li>
@@ -90,23 +90,24 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-8  col-centered-small">
+              <div class="col-md-10  col-centered-small">
                 <h3>Each task (single feature, bug fix, etc.) should have the following workflow:</h3>
                 <h3>Product Manager -> Software Developer -> Quality Assurance</h3>
-                <h3>For each task you have to estimate the times how long does it take to be executed at each stage</h3>
+                <h3>For each task you have to estimate how long does it take to be executed at each stage</h3>
                 <h2 class="header-break">What scheduler is doing?</h2>
                 <h3>SchedulerJS uses mathematically proven algorithms to compute the order in which the tasks should be executed
                   in order to complete the project in the shortest time</h3>
             </div>
           </div>
             <h2>How to use it step by step?<h2>
-            <ol>
-              <li>Prepare your task list</li>
-              <li>Upload your task list to the server</li>
-              <li>Choose scheduling algorithm</li>
-              <li>Export the results</li>
-            </ol>
-            <p><a class="btn btn-primary btn-lg" href="app.html" role="button">Use SchedulerJS »</a></p>
+            <h3>1. Prepare your task list</h3>
+            <h4>The tasks list should be in CSV format and must use the following column names: Task, M1Time, M2Time and M3Time</h4>
+            <img src="/resources/csv.png" alt="tasks-table" style="width:304px;height:228px;"/>
+            <h3>2. Upload your task list to the server</h3>
+            <h3>3. Choose scheduling algorithm</h3>
+            <h3>4. Export the results</h3>
+
+            <p><a class="btn btn-primary btn-lg" id="bottom-cta" href="app.html" role="button">Use SchedulerJS »</a></p>
         </div>
       </div>
       </section>
