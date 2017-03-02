@@ -40,6 +40,10 @@ app.get('/get_schedule/cds', function(req, res) {
   taskScheduler.CDSAlgorithm(lastUploadedFileName, res);
 });
 
+app.get('/get_schedule/neh', function(req, res) {
+  taskScheduler.NEHAlgorithm(lastUploadedFileName, res);
+});
+
 //parse uploaded file to json and save on server
 app.post('/upload', uploadingConfig, function(req, res) {
   lastUploadedFileName = req.files[0].originalname;

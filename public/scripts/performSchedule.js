@@ -1,6 +1,8 @@
 $(document).ready(function() {
   const JohnsonButton = $("#JohnsonButton");
   const CDSButton = $("#CDSButton");
+  const NEHButton = $("#NEHButton");
+
   $("#JohnsonButton").click(function() {
     $.ajax({
       url: '/get_schedule/johnson',
@@ -12,6 +14,7 @@ $(document).ready(function() {
           var algorithmNameDiv = d3.select("#algorithmName").select("p").text("Johnson algorithm");
           JohnsonButton.css('background-color', '#0d47a1');
           CDSButton.css('background-color', '#473939');
+          NEHButton.css('background-color', '#473939');
           showScheduleFrom(response);
         }
       }
@@ -26,6 +29,21 @@ $(document).ready(function() {
         var algorithmNameDiv = d3.select("#algorithmName").select("p").text("Campbell-Dudek-Smith algorithm");
         JohnsonButton.css('background-color', '#473939');
         CDSButton.css('background-color', '#0d47a1');
+        NEHButton.css('background-color', '#473939');
+        showScheduleFrom(response);
+      }
+    });
+  });
+
+  $("#NEHButton").click(function() {
+    $.ajax({
+      url: '/get_schedule/neh',
+      type: 'GET',
+      success: function(response) {
+        var algorithmNameDiv = d3.select("#algorithmName").select("p").text("Nawaz-Enscor-Ham algorithm");
+        JohnsonButton.css('background-color', '#473939');
+        CDSButton.css('background-color', '#473939');
+        NEHButton.css('background-color', '#0d47a1');
         showScheduleFrom(response);
       }
     });

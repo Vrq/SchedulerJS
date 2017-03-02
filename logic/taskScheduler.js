@@ -70,6 +70,37 @@ exports.CDSAlgorithm = function(fileName, res) {
   });
 }
 
+exports.NEHAlgorithm = function(fileName, res) {
+  var filePath = path.join(__dirname, "..", "uploaded_files", fileName + ".json")
+  fs.readFile(filePath, function(err, data) {
+    if(err) {
+      return console.log(err);
+    }
+    var file = JSON.parse(data);
+    var firstTasksArray = [];
+    var testArray = [];
+    for(var taskNumber in file) {
+      task = _.cloneDeep(file[taskNumber]);
+      testArray.push(task);
+      firstTasksArray.push({"Task": task.Task, "M1pTime": task.M1Time, "M2pTime": task.M3Time, "TaskNumber": taskNumber});
+    }
+    //1 - for each task calculate total execution time
+    for(var task of testArray) {
+      task.TotalExecutionTime = task.M1Time + task.M2Time + task.M3Time;
+      console.log(task)
+    }
+    //2 - sort task list by the longest TET
+    //3 - take 2 first tasks and choose the better sequence
+    //4 - take next task and place it in the place where the sequence will be optimum
+    //5 - after placing all tasks return the sequence
+    var firstTaskSchedule = getCalculatedTimeSchedule(file, Johnson2Machines(firstTasksArray))
+
+    var bestSchedule = firstTaskSchedule
+    res.setHeader('Content-Type', 'application/json');
+    res.send(bestSchedule);
+  });
+}
+
 function Johnson2Machines(taskArray) {
   var m1TimeLowerArray = [];
   var m2TimeLowerOrEqualArray = [];
