@@ -81,21 +81,35 @@ exports.NEHAlgorithm = function(fileName, res) {
     var testArray = [];
     for(var taskNumber in file) {
       task = _.cloneDeep(file[taskNumber]);
+      task.TaskNumber = taskNumber;
       testArray.push(task);
       firstTasksArray.push({"Task": task.Task, "M1pTime": task.M1Time, "M2pTime": task.M3Time, "TaskNumber": taskNumber});
     }
     //1 - for each task calculate total execution time
     for(var task of testArray) {
       task.TotalExecutionTime = task.M1Time + task.M2Time + task.M3Time;
-      console.log(task)
     }
     //2 - sort task list by the longest TET
-    //3 - take 2 first tasks and choose the better sequence
-    //4 - take next task and place it in the place where the sequence will be optimum
-    //5 - after placing all tasks return the sequence
-    var firstTaskSchedule = getCalculatedTimeSchedule(file, Johnson2Machines(firstTasksArray))
+    testArray.sort( function(task1, task2) {
+      return task2.TotalExecutionTime - task1.TotalExecutionTime;
+    });
+    //3 - start with 1st task, take next one and place it in the place where the sequence will be optimum
+    var checkerArray = [];
+    for(var taskNumber in testArray) {
+      var calculatedSchedulesArray = [];
+      for(var index = 0; index<=taskNumber; index++) {
+        checkerArray.splice(index, 0, testArray[taskNumber]);
+        testedScheduleArray = getCalculatedTimeSchedule(file, checkerArray);
+        calculatedSchedulesArray.push(testedScheduleArray[testedScheduleArray.length-1].M3Stop);
+        checkerArray.splice(index, 1);
+      }
+      var bestIndex = calculatedSchedulesArray.indexOf(Math.min(...calculatedSchedulesArray));
+      checkerArray.splice(bestIndex, 0, testArray[taskNumber]);
+    }
+    //4 - after placing all tasks return the sequence
+    var firstTaskSchedule = getCalculatedTimeSchedule(file, checkerArray);
 
-    var bestSchedule = firstTaskSchedule
+    var bestSchedule = firstTaskSchedule;
     res.setHeader('Content-Type', 'application/json');
     res.send(bestSchedule);
   });
