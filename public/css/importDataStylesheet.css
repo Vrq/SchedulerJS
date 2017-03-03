@@ -1,6 +1,9 @@
 #csvFileInput {
   display: none;
 }
+#chooseFileButton {
+  border-style: solid;
+}
 #chooseFileButton:hover {
   background-color: #715b5b;
 }
