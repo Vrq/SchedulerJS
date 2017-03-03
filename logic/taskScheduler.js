@@ -103,7 +103,7 @@ exports.NEHAlgorithm = function(fileName, res) {
         calculatedSchedulesArray.push(testedScheduleArray[testedScheduleArray.length-1].M3Stop);
         checkerArray.splice(index, 1);
       }
-      var bestIndex = calculatedSchedulesArray.indexOf(Math.min(...calculatedSchedulesArray));
+    //  var bestIndex = calculatedSchedulesArray.indexOf(Math.min(...calculatedSchedulesArray));
       checkerArray.splice(bestIndex, 0, testArray[taskNumber]);
     }
     //4 - after placing all tasks return the sequence
