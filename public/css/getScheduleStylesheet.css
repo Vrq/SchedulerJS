@@ -3,7 +3,10 @@
   text-align: center;
 }
 #hiddenScheduleDiv {
-  color: #ffffff;
+  display: none;
+}
+#hiddenScheduleDiv > div > p {
+  color: #534343;
 }
 .tooltip {
     background: #eee;

@@ -62,8 +62,6 @@ exports.CDSAlgorithm = function(fileName, res) {
     var secondTaskSchedule = getCalculatedTimeSchedule(file, Johnson2Machines(secondTasksArray))
     var firstScheduleEndTime = firstTaskSchedule[firstTaskSchedule.length-1].M3Stop;
     var secondScheduleEndTime = secondTaskSchedule[secondTaskSchedule.length-1].M3Stop;
-    console.log(firstScheduleEndTime)
-    console.log(secondScheduleEndTime)
     var bestSchedule = firstScheduleEndTime < secondScheduleEndTime ? firstTaskSchedule : secondTaskSchedule;
     res.setHeader('Content-Type', 'application/json');
     res.send(bestSchedule);
@@ -104,8 +102,7 @@ exports.NEHAlgorithm = function(fileName, res) {
         checkerArray.splice(index, 1);
       }
     var bestIndex = calculatedSchedulesArray.indexOf(Math.min.apply(null,calculatedSchedulesArray));
-    console.log(bestIndex)
-      checkerArray.splice(bestIndex, 0, testArray[taskNumber]);
+    checkerArray.splice(bestIndex, 0, testArray[taskNumber]);
     }
     //4 - after placing all tasks return the sequence
     var firstTaskSchedule = getCalculatedTimeSchedule(file, checkerArray);
