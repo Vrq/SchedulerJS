@@ -54,12 +54,12 @@
 			<div class="tab-content clearfix">
 			  <div class="tab-pane active" id="1a">
           <h1>Overview</h1>
-          <h4>Scheduling is the process of optimising work and workloads in a production process.</h4>
+          <h4>Scheduling is the process of optimizing work and workloads in a production process.</h4>
           <h4>The main goal of it is to cut costs by optimally allocating available resources and reducing total production time.</h4>
           <h2>General definition:</h2>
           <h4>Given a set of tasks J = {J1,...,Jn} which have to be executed on a set of machines M = {M1,...,Mm}
             it is to find a schedule, that is a mapping of tasks to the machines with specified start and stop times, which,
-            by given constraints, optimises a choosen goal function.</h4>
+            by given constraints, optimizes a chosen goal function.</h4>
           </br>
           <h4>The most used parameters for goal function calculation are the following (given task with index - j):</h4>
           <ul>
@@ -116,19 +116,19 @@
             <li>min(p3j)  >=  max(p2j)  for  j = {1,...,n}</li>
           </ul>
           </br>
-          <h4>If the condition is met, the problem can be reduced to a 2-machines problem by introducting 2 helper
+          <h4>If the condition is met, the problem can be reduced to a 2-machines problem by introducing 2 helper
             machines M1' and M2' for which the times are calculated using formulas:<h4>
           <ul>
             <li>p1j' = p1j + p2j</li>
             <li>p2j' = p2j + p3j</li>
           </ul>
           </br>
-          <h4>After that the problem is solved by the original algorithm</h4>
+          <h4>After that, the problem is solved by the original algorithm</h4>
 				</div>
         <div class="tab-pane" id="3a">
           <h1>Campbell-Dudek-Smith algorithm</h1>
           <h4>The CDS algorithm was developed by Herbert G. Campbell, Richard A. Dudek and Milton L. Smith in 1970.
-          It is a heuristic algorithm that enables to get an approximate solution to a n-task m-machine Flow Shop problem.</h4>
+          It is a heuristic algorithm that enables to get an approximate solution to an n-task m-machine Flow Shop problem.</h4>
           <h4>In order to get a solution, the original problem is first split into subproblems and then solved using the Johnson algorithm.</h4>
           <h2>Algorithm steps:</h2>
           <ol>
@@ -140,8 +140,18 @@
 
 				</div>
         <div class="tab-pane" id="4a">
-          <h1>3rd algorithm</h1>
-          <h3>TBD</h3>
+          <h1>Nawaz-Enscor-Ham algorithm</h1>
+          <h4>The NEH algorithm (authors: Nawaz M, Enscore Jr. EE, Ham I, published in 1983) is a heuristic algorithm that uses the Longest
+          Processing Time (LPT) rule. It enables to find the approximate solution to an n-task m-machine Flow Shop problem.</h4>
+          <h2>Algorithm steps:</h2>
+          <ol>
+            <li>For each task calculate the total completion time Tj using the formula:  $$T_{j} = \sum_{i=1}^{m}p_{ij}$$</li>
+            <li>Sort the tasks list by non increasing total completion time</li>
+            <li>Take 2 first tasks and choose the best schedule of them which will be the temporary best sequence</li>
+            <li>Take the next task, try putting it at each place of the current temporary best sequence and choose the new best one</li>
+            <li>Repeat the 4th step until all tasks are processed</li>
+            <li>The last temporary best sequence will be the result schedule</li>
+          </ol>
 				</div>
 			</div>
   </div>
