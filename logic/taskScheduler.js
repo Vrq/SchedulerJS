@@ -24,11 +24,11 @@ exports.JohnsonAlgorithm = function(fileName, res) {
         maxM2Time = task.M2Time;
       }
     }
-    var isJohnsonApplicable = (minM1Time >= maxM2Time || minM3Time >= maxM2Time);
+    var isJohnsonApplicable = (minM1Time >= maxM2Time || minM3Time >= maxM2Time); //rule for using Johnsons algorithm for 3 machines
     if(!isJohnsonApplicable) {
       res.send(null);
     }
-    else {
+    else { //create helper tasks (2-machine problem)
       var newTasksArray = [];
       for(var taskNumber in file) {
         task = _.cloneDeep(file[taskNumber]);
@@ -49,6 +49,7 @@ exports.CDSAlgorithm = function(fileName, res) {
     }
     var file = JSON.parse(data);
     var firstTasksArray = [];
+    //1 - create helper problems, for 3 machines that will be 2 problems(m-1)
     for(var taskNumber in file) {
       task = _.cloneDeep(file[taskNumber]);
       firstTasksArray.push({"Task": task.Task, "M1pTime": task.M1Time, "M2pTime": task.M3Time, "TaskNumber": taskNumber});
@@ -75,47 +76,44 @@ exports.NEHAlgorithm = function(fileName, res) {
       return console.log(err);
     }
     var file = JSON.parse(data);
-    var firstTasksArray = [];
-    var testArray = [];
+    var taskArray = [];
     for(var taskNumber in file) {
       task = _.cloneDeep(file[taskNumber]);
       task.TaskNumber = taskNumber;
-      testArray.push(task);
-      firstTasksArray.push({"Task": task.Task, "M1pTime": task.M1Time, "M2pTime": task.M3Time, "TaskNumber": taskNumber});
+      taskArray.push(task);
     }
     //1 - for each task calculate total execution time
-    for(var task of testArray) {
+    for(var task of taskArray) {
       task.TotalExecutionTime = task.M1Time + task.M2Time + task.M3Time;
     }
     //2 - sort task list by the longest TET
-    testArray.sort( function(task1, task2) {
+    taskArray.sort( function(task1, task2) {
       return task2.TotalExecutionTime - task1.TotalExecutionTime;
     });
     //3 - start with 1st task, take next one and place it in the place where the sequence will be optimum
     var checkerArray = [];
-    for(var taskNumber in testArray) {
+    for(var taskNumber in taskArray) {
       var calculatedSchedulesArray = [];
       for(var index = 0; index<=taskNumber; index++) {
-        checkerArray.splice(index, 0, testArray[taskNumber]);
+        checkerArray.splice(index, 0, taskArray[taskNumber]);
         testedScheduleArray = getCalculatedTimeSchedule(file, checkerArray);
         calculatedSchedulesArray.push(testedScheduleArray[testedScheduleArray.length-1].M3Stop);
         checkerArray.splice(index, 1);
       }
     var bestIndex = calculatedSchedulesArray.indexOf(Math.min.apply(null,calculatedSchedulesArray));
-    checkerArray.splice(bestIndex, 0, testArray[taskNumber]);
+    checkerArray.splice(bestIndex, 0, taskArray[taskNumber]);
     }
     //4 - after placing all tasks return the sequence
-    var firstTaskSchedule = getCalculatedTimeSchedule(file, checkerArray);
-
-    var bestSchedule = firstTaskSchedule;
+    var taskSchedule = getCalculatedTimeSchedule(file, checkerArray);
     res.setHeader('Content-Type', 'application/json');
-    res.send(bestSchedule);
+    res.send(taskSchedule);
   });
 }
 
 function Johnson2Machines(taskArray) {
   var m1TimeLowerArray = [];
   var m2TimeLowerOrEqualArray = [];
+  //1 - divide tasks into 2 sets: 1st - m1 time lover than m2, 2nd - the rest
   for(var task of taskArray) { //test case: are those arrays filled correctly
     if(task.M1pTime < task.M2pTime) {
       m1TimeLowerArray.push(_.cloneDeep(task));
@@ -123,12 +121,14 @@ function Johnson2Machines(taskArray) {
       m2TimeLowerOrEqualArray.push(_.cloneDeep(task));
     }
   }
+  //2 - sort first set by ascending m1 time, sort second by descending m2 time
   m1TimeLowerArray.sort( function(task1, task2) {
     return task1.M1pTime - task2.M1pTime;
   });
   m2TimeLowerOrEqualArray.sort( function(task1, task2) {
     return task2.M2pTime - task1.M2pTime;
   });
+  //3 - concat 1st set + 2nd set
   return m1TimeLowerArray.concat(m2TimeLowerOrEqualArray);
 }
 
