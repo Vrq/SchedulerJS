@@ -97,7 +97,7 @@ exports.NEHAlgorithm = function(fileName, res) {
       for(var index = 0; index<=taskNumber; index++) {
         checkerArray.splice(index, 0, taskArray[taskNumber]);
         testedScheduleArray = getCalculatedTimeSchedule(file, checkerArray);
-        calculatedSchedulesArray.push(testedScheduleArray[testedScheduleArray.length-1].M3Stop);
+        calculatedSchedulesArray.push(testedScheduleArray[testedScheduleArray.length-1].M3Stop);//Cmax
         checkerArray.splice(index, 1);
       }
     var bestIndex = calculatedSchedulesArray.indexOf(Math.min.apply(null,calculatedSchedulesArray));
