@@ -91,7 +91,7 @@ exports.NEHAlgorithm = function(fileName, res) {
       return task2.TotalExecutionTime - task1.TotalExecutionTime;
     });
     //3 - start with 1st task, take next one and place it in the place where the sequence will be optimum
-    var checkerArray = [];
+    var checkerArray = [];//
     for(var taskNumber in taskArray) {
       var calculatedSchedulesArray = [];
       for(var index = 0; index<=taskNumber; index++) {
